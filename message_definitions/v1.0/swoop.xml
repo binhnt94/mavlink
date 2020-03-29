@@ -173,6 +173,18 @@
       
     </enum>
 
+    <enum name="SWOOP_STATUS_TYPE">
+      <description>Enumerated type for flight stage</description>
+      <entry value="1" name="HOVER_TAKEOFF"/>  <!-- 0 -->
+      <entry value="2" name="TRANSITION_TO_FORWARD_FLIGHT"/> <!-- 2 -->
+      <entry value="3" name="FORWARD_FLIGHT"/>  <!-- 3 -->
+      <entry value="4" name="TRANSITION_TO_HOVER"/> <!-- 4 -->
+      <entry value="5" name="SEARCHING_FOR_TARGET"/>  <!-- 4 -->
+      <entry value="6" name="HOVER_DECENT"/> <!-- 5 -->
+      <entry value="7" name="DISSARMED_ON_GROUND"/> <!-- 5 -->
+      <entry value="8" name="PREPARING_FOR_TAKEOFF"/> <!-- 5 --> 
+    </enum>
+
     <enum name="SWOOP_INFLIGHT_FLAGS">
       <description>Flag bits to indicate inflight issues</description>
       <entry value="1" name="HOVER_ASSIST"/><!-- 1 -->
@@ -282,5 +294,10 @@
       <field type="uint8_t" name="servoDetail" enum="SERVO_DETAIL">Flag bits to indicate detail of Servo issues</field>
     </message>
     
+    <message id="6904" name="SWOOP_STATUS">
+      <description>Periodic ARMING status Flag Packet</description>
+      <field type="uint8_t" name="flightStatus" enum="SWOOP_STATUS_TYPE">Enumerated type for flight stage</field>
+    </message>
+
   </messages>
 </mavlink>
