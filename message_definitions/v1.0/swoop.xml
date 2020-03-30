@@ -113,6 +113,7 @@
       <entry value="256" name="HOVER_MOTOR_OSCILLATIONS"/> <!-- 9 -->
       <entry value="512" name="HOVER_MOTOR_OFFSETS"/> <!-- 10 -->
       <entry value="1024" name="HOVER_MOTOR_OUTPUT_SATURATION"/> <!-- 11 -->
+      <entry value="2048" name="HOVER_MOTOR_HIGH_POWER"/> <!-- 11 -->
     </enum>
 
     <enum name="SWOOP_FORWARD_MOTOR_FAIL_DETAIL">
@@ -120,6 +121,7 @@
       <entry value="1" name="FORWARD_MOTOR_1_FAILURE"/> <!-- 10 -->
       <entry value="2" name="FORWARD_MOTOR_2_FAILURE"/> <!-- 11 -->
       <entry value="4" name="FORWARD_MOTOR_OUTPUT_SATURATION"/> <!-- 11 -->
+      <entry value="8" name="FORWARD_MOTOR_HIGH_POWER"/> <!-- 11 -->
     </enum>
 
     <enum name="LIDAR_DETAIL">
@@ -140,6 +142,12 @@
       <entry value="2" name="HOVER_BATTERY_FAILURE_DETECTED"/> <!-- 7 -->
     </enum>
 
+     <enum name="ALTITTUDE_DETAIL">
+      <description>Flag bits to indicate battery issues</description>
+      <entry value="1" name="ALTITUDE_HIGH"/> <!-- 3 -->
+      <entry value="2" name="ALTITUDE_LOW"/> <!-- 7 -->
+    </enum>
+
     <enum name="LANDING_DETAIL">
       <description>Flag bits to indicate landing issues</description>
       <entry value="1" name="LANDING_G"/>  <!-- 1 -->
@@ -156,6 +164,7 @@
     <enum name="AIRSPEED_DETAIL">
       <description>Flag bits to indicate airspeed issues</description>
       <entry value="1" name="AIRSPEED_LOW"/>  <!-- 1 -->
+      <entry value="2" name="AIRSPEED_HIGH"/>  <!-- 1 -->
       <entry value="2" name="AIRSPEED_SENSOR_1"/> <!-- 2 -->
       <entry value="4" name="AIRSPEED_SENSOR_2"/> <!-- 3 -->
       <entry value="8" name="AIRSPEED_SENSOR_3"/> <!-- 4 -->
@@ -247,7 +256,7 @@
       <field type="uint8_t" name="lidarDetail" enum="LIDAR_DETAIL">Flag bits to indicate detail of Lidar issues</field>
       <field type="uint8_t" name="hoverBatteryDetail" enum="FORWARD_BATTERY_DETAIL">Flag bits to indicate detail of Hover Battery issues</field>
       <field type="uint8_t" name="forwardBatteryDetail" enum="HOVER_BATTERY_DETAIL">Flag bits to indicate detail of Forward Battery issues</field>
-      <field type="uint8_t" name="altitudeDetail" enum="SWOOP_NO_DETAIL">Flag bits to indicate detail of Altitude hold issues</field>
+      <field type="uint8_t" name="altitudeDetail" enum="ALTITTUDE_DETAIL">Flag bits to indicate detail of Altitude hold issues</field>
       <field type="uint8_t" name="windDetail" enum="SWOOP_NO_DETAIL">Flag bits to indicate detail of Wind Strength issues</field>
       <field type="uint8_t" name="hoverAttitudeDetail" enum="SWOOP_NO_DETAIL">Flag bits to indicate detail of Hover Attitude issues</field>
       <field type="uint8_t" name="landingDetail" enum="LANDING_DETAIL">Flag bits to indicate detail of Landing issues</field>
@@ -285,7 +294,7 @@
       <field type="uint8_t" name="lidarDetail" enum="LIDAR_DETAIL">Flag bits to indicate detail of Lidar issues</field>
       <field type="uint8_t" name="hoverBatteryDetail" enum="FORWARD_BATTERY_DETAIL">Flag bits to indicate detail of Hover Battery issues</field>
       <field type="uint8_t" name="forwardBatteryDetail" enum="HOVER_BATTERY_DETAIL">Flag bits to indicate detail of Forward Battery issues</field>
-      <field type="uint8_t" name="altitudeDetail" enum="SWOOP_NO_DETAIL">Flag bits to indicate detail of Altitude hold issues</field>
+      <field type="uint8_t" name="altitudeDetail" enum="ALTITTUDE_DETAIL">Flag bits to indicate detail of Altitude hold issues</field>
       <field type="uint8_t" name="windDetail" enum="SWOOP_NO_DETAIL">Flag bits to indicate detail of Wind Strength issues</field>
       <field type="uint8_t" name="hoverAttitudeDetail" enum="SWOOP_NO_DETAIL">Flag bits to indicate detail of Hover Attitude issues</field>
       <field type="uint8_t" name="landingDetail" enum="LANDING_DETAIL">Flag bits to indicate detail of Landing issues</field>
