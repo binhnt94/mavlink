@@ -107,14 +107,10 @@
       <entry value="2" name="HOVER_MOTOR_2_FAILURE"/> <!-- 2 -->
       <entry value="4" name="HOVER_MOTOR_3_FAILURE"/> <!-- 3 -->
       <entry value="8" name="HOVER_MOTOR_4_FAILURE"/> <!-- 4 -->
-      <entry value="16" name="HOVER_MOTOR_5_FAILURE"/> <!-- 5 -->
-      <entry value="32" name="HOVER_MOTOR_6_FAILURE"/> <!-- 6 -->
-      <entry value="64" name="HOVER_MOTOR_7_FAILURE"/> <!-- 7 -->
-      <entry value="128" name="HOVER_MOTOR_8_FAILURE"/> <!-- 8 -->
-      <entry value="256" name="HOVER_MOTOR_OSCILLATIONS"/> <!-- 9 -->
-      <entry value="512" name="HOVER_MOTOR_OFFSETS"/> <!-- 10 -->
-      <entry value="1024" name="HOVER_MOTOR_OUTPUT_SATURATION"/> <!-- 11 -->
-      <entry value="2048" name="HOVER_MOTOR_HIGH_POWER"/> <!-- 11 -->
+      <entry value="16" name="HOVER_MOTOR_OSCILLATIONS"/> <!-- 5 -->
+      <entry value="32" name="HOVER_MOTOR_OFFSETS"/> <!-- 6 -->
+      <entry value="64" name="HOVER_MOTOR_OUTPUT_SATURATION"/> <!-- 7 -->
+      <entry value="2048" name="HOVER_MOTOR_HIGH_POWER"/> <!-- 8 -->
     </enum>
 
     <enum name="SWOOP_FORWARD_MOTOR_FAIL_DETAIL">
@@ -166,10 +162,10 @@
       <description>Flag bits to indicate airspeed issues</description>
       <entry value="1" name="AIRSPEED_LOW"/>  <!-- 1 -->
       <entry value="2" name="AIRSPEED_HIGH"/>  <!-- 1 -->
-      <entry value="2" name="AIRSPEED_SENSOR_1"/> <!-- 2 -->
-      <entry value="4" name="AIRSPEED_SENSOR_2"/> <!-- 3 -->
-      <entry value="8" name="AIRSPEED_SENSOR_3"/> <!-- 4 -->
-      <entry value="16" name="AIRSPEED_SENSOR_4"/> <!-- 5 -->
+      <entry value="4" name="AIRSPEED_SENSOR_1"/> <!-- 2 -->
+      <entry value="8" name="AIRSPEED_SENSOR_2"/> <!-- 3 -->
+      <entry value="16" name="AIRSPEED_SENSOR_3"/> <!-- 4 -->
+      <entry value="32" name="AIRSPEED_SENSOR_4"/> <!-- 5 -->
     </enum>
 
     <enum name="SERVO_DETAIL">
@@ -252,7 +248,7 @@
       <field type="uint8_t" name="emergencyLandDetail" enum="SWOOP_EMERGENCY_LAND_DETAIL">Flag bits to indicate detail of Emergency Land issues</field>
       <field type="uint8_t" name="gpsDetail" enum="SWOOP_GPS_HEALTH_DETAIL">Flag bits to indicate detail of GPS issues</field>
       <field type="uint8_t" name="vibrationDetail" enum="SWOOP_NO_DETAIL">Flag bits to indicate detail of Vibration issues</field>
-      <field type="uint16_t" name="hoverMotorDetail" enum="SWOOP_HOVER_MOTOR_FAIL_DETAIL">Flag bits to indicate detail of Hover Motor issues</field>
+      <field type="uint8_t" name="hoverMotorDetail" enum="SWOOP_HOVER_MOTOR_FAIL_DETAIL">Flag bits to indicate detail of Hover Motor issues</field>
       <field type="uint8_t" name="forwardMotorDetail" enum="SWOOP_FORWARD_MOTOR_FAIL_DETAIL">Flag bits to indicate detail of Forward Motor issues</field>
       <field type="uint8_t" name="lidarDetail" enum="LIDAR_DETAIL">Flag bits to indicate detail of Lidar issues</field>
       <field type="uint8_t" name="hoverBatteryDetail" enum="FORWARD_BATTERY_DETAIL">Flag bits to indicate detail of Hover Battery issues</field>
@@ -290,7 +286,7 @@
       <field type="uint8_t" name="emergencyLandDetail" enum="SWOOP_EMERGENCY_LAND_DETAIL">Flag bits to indicate detail of Emergency Land issues</field>
       <field type="uint8_t" name="gpsDetail" enum="SWOOP_GPS_HEALTH_DETAIL">Flag bits to indicate detail of GPS issues</field>
       <field type="uint8_t" name="vibrationDetail" enum="SWOOP_NO_DETAIL">Flag bits to indicate detail of Vibration issues</field>
-      <field type="uint16_t" name="hoverMotorDetail" enum="SWOOP_HOVER_MOTOR_FAIL_DETAIL">Flag bits to indicate detail of Hover Motor issues</field>
+      <field type="uint8_t" name="hoverMotorDetail" enum="SWOOP_HOVER_MOTOR_FAIL_DETAIL">Flag bits to indicate detail of Hover Motor issues</field>
       <field type="uint8_t" name="forwardMotorDetail" enum="SWOOP_FORWARD_MOTOR_FAIL_DETAIL">Flag bits to indicate detail of Forward Motor issues</field>
       <field type="uint8_t" name="lidarDetail" enum="LIDAR_DETAIL">Flag bits to indicate detail of Lidar issues</field>
       <field type="uint8_t" name="hoverBatteryDetail" enum="FORWARD_BATTERY_DETAIL">Flag bits to indicate detail of Hover Battery issues</field>
