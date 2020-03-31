@@ -64,10 +64,11 @@
 
     <enum name="SWOOP_FLAG_INTENSITY">
       <description>Flag bits to indicate intensity of inflight issues</description>
+      <entry value="0" name="NO_FLAG"/><!-- 0 -->
       <entry value="1" name="NOTE"/><!-- 1 -->
       <entry value="2" name="ADVICE"/><!-- 2 -->
-      <entry value="4" name="CAUTION"/> <!-- 3 -->
-      <entry value="8" name="WARNING"/> <!-- 4 -->
+      <entry value="3" name="CAUTION"/> <!-- 3 -->
+      <entry value="4" name="WARNING"/> <!-- 4 -->
     </enum>
 
     <enum name="SWOOP_HOVER_ASSIST_DETAIL">
