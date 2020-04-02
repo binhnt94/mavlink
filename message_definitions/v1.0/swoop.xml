@@ -15,20 +15,20 @@
       <description>Flag bits to indicate which of the arming checks is failing</description>
       <entry value="1" name="SAFETY_SWITCH_DISSABLED"/>  <!-- 0 -->
       <entry value="2" name="BAROMETER_NOT_HEALTHY"/> <!-- 1 -->
-      <entry value="4" name="GYRO_NOT_HEALTHY"/> <!-- 2 -->
+      <entry value="4" name="CAN_BUS_NOT_HEALTHY"/> <!-- 2 -->
       <entry value="8" name="GYRO_NOT_CALIBRATED"/> <!-- 3 -->
       <entry value="16" name="GYROS_INCONSISTENT"/> <!-- 4 -->
-      <entry value="32" name="ACCELS_NOT_HEALTHY"/> <!-- 5 -->
+      <entry value="32" name="PROXIMITY_ERROR"/> <!-- 5 -->
       <entry value="64" name="ACCELS_NOT_CALIBRATED"/> <!-- 6 -->
       <entry value="128" name="ACCELS_INCONSISTENT"/> <!-- 7 -->
-      <entry value="256" name="COMPASS_NOT_HEALTHY"/> <!-- 8 -->
+      <entry value="256" name="RANGEFINDER_NOT_HEALTHY"/> <!-- 8 -->
       <entry value="512" name="COMPASS_NOT_CALIBRATED"/> <!-- 9 -->
-      <entry value="1024" name="COMPASS_INCONSISTENT"/> <!-- 10 -->
-      <entry value="2048" name="COMPASS_OFFSETS"/> <!-- 11 -->
-      <entry value="4096" name="HIGH_MAG_FIELD_STRENGTH"/> <!-- 12 -->
-      <entry value="8192" name="BAD_GPS_POSITION"/> <!-- 13 -->
-      <entry value="16384" name="GPS_NOT_HEALTHY"/> <!-- 14 -->
-      <entry value="32768" name="GPS_POSITIONS_DIFFERENT"/>  <!-- 15 -->
+      <entry value="1024" name="COMPASS_OFFSETS"/> <!-- 10 -->
+      <entry value="2048" name="AUTOPILOT_VOLTAGE_ERROR"/> <!-- 11 -->
+      <entry value="4096" name="AUTOPILOT_INTERNAL_SYSTEM_ERROR"/> <!-- 12 -->
+      <entry value="8192" name="MOTORS_ESTOP"/> <!-- 13 -->
+      <entry value="16384" name="GPS_BLENDING_UNHEALTHY"/> <!-- 14 -->
+      <entry value="32768" name="BAD_PARAMS"/>  <!-- 15 -->
      
     </enum>
 
@@ -39,27 +39,29 @@
       <entry value="4" name="AIRSPEED_3_NOT_HEALTHY"/> <!-- 2 -->
       <entry value="8" name="AIRSPEED_4_NOT_HEALTHY"/> <!-- 3 -->
       <entry value="16" name="QUADPLANE_NOT_RUNNING"/> <!-- 4 -->
-      <entry value="32" name="ADSB_THREAT"/> <!-- 5 -->
-      <entry value="64" name="MOTORS_ESTOP"/> <!-- 6 -->
-      <entry value="128" name="GPS_BLENDING_UNHEALTHY"/><!-- 7 -->
-      <entry value="256" name="GPS_DIFFERENT_TO_EKF"/><!-- 8 -->
-      <entry value="512" name="BAD_PARAMS"/><!-- 9 -->
-      <entry value="1024" name="BATTERY_PROBLEM"/><!-- 10 -->
-      <entry value="2048" name="LOGGING_FAILED"/><!-- 11 -->
-      <entry value="4096" name="NO_SD_CARD"/><!-- 12 -->
-      <entry value="8192" name="MANUAL_TRANSMITTER_PROBLEM"/><!-- 13 -->
-      <entry value="16384" name="NO_MISSION_LOADED"/><!-- 14 -->
-      <entry value="32768" name="MISSION_MISSING_ELEMENTS"/><!-- 15 -->
+      <entry value="32" name="BATTERY_PROBLEM"/> <!-- 5 -->
+      <entry value="64" name="LOGGING_FAILED"/> <!-- 6 -->
+      <entry value="128" name="NO_SD_CARD"/><!-- 7 -->
+      <entry value="256" name="MANUAL_TRANSMITTER_PROBLEM"/><!-- 8 -->
+      <entry value="512" name="NO_MISSION_LOADED"/><!-- 9 -->
+      <entry value="1024" name="MISSION_MISSING_ELEMENTS"/><!-- 10 -->
+
     </enum>
 
-    <enum name="SWOOP_ARMING_CHECK_DETAIL_3">
+    <enum name="SWOOP_ARMING_CHECK_COMMON">
       <description>Flag bits to indicate which of the arming checks is failing2</description>
-      <entry value="1" name="RANGEFINDER_NOT_HEALTHY"/>  <!-- 0 -->
-      <entry value="2" name="AUTOPILOT_VOLTAGE_ERROR"/> <!-- 1 -->
-      <entry value="4" name="AUTOPILOT_INTERNAL_SYSTEM_ERROR"/> <!-- 2 -->
-      <entry value="8" name="CAN_BUS_NOT_HEALTHY"/> <!-- 3 -->
-      <entry value="16" name="PROXIMITY_ERROR"/> <!-- 4 -->
-     
+      <entry value="1" name="AHRS_NOT_HEALTHY"/>  <!-- 0 -->
+      <entry value="2" name="BAD_GPS_POSITION"/> <!-- 1 -->
+      <entry value="4" name="GPS_NOT_HEALTHY"/> <!-- 2 -->
+      <entry value="8" name="GYRO_NOT_HEALTHY"/> <!-- 3 -->
+      <entry value="16" name="ACCELS_NOT_HEALTHY"/> <!-- 4 -->
+      <entry value="32" name=" COMPASS_NOT_HEALTHY"/> <!-- 5 -->
+      <entry value="64" name="HIGH_MAG_FIELD_STRENGTH"/> <!-- 6 -->
+      <entry value="128" name="COMPASS_INCONSISTENT"/><!-- 7 -->
+      <entry value="256" name="GPS_POSITIONS_DIFFERENT"/><!-- 8 -->
+      <entry value="512" name="GPS_DIFFERENT_TO_EKF"/><!-- 9 -->
+      <entry value="1024" name="ADSB_THREAT"/><!-- 10 -->
+
     </enum>
 
     <enum name="SWOOP_FLAG_INTENSITY">
@@ -181,14 +183,18 @@
 
     <enum name="SWOOP_STATUS_TYPE">
       <description>Enumerated type for flight stage</description>
-      <entry value="1" name="HOVER_TAKEOFF"/>  <!-- 0 -->
-      <entry value="2" name="TRANSITION_TO_FORWARD_FLIGHT"/> <!-- 2 -->
-      <entry value="3" name="FORWARD_FLIGHT"/>  <!-- 3 -->
-      <entry value="4" name="TRANSITION_TO_HOVER"/> <!-- 4 -->
-      <entry value="5" name="SEARCHING_FOR_TARGET"/>  <!-- 4 -->
-      <entry value="6" name="HOVER_DECENT"/> <!-- 5 -->
-      <entry value="7" name="DISSARMED_ON_GROUND"/> <!-- 5 -->
-      <entry value="8" name="PREPARING_FOR_TAKEOFF"/> <!-- 5 --> 
+      <entry value="0" name="DISSARMED_ON_GROUND"/>  <!-- 0 -->
+      <entry value="1" name="MOTORS_IDLING"/> <!-- 5 -->
+      <entry value="2" name="TAKEOFF"/>  <!-- 0 -->
+      <entry value="3" name="TRANSITION_TO_FORWARD_FLIGHT"/> <!-- 2 -->
+      <entry value="4" name="FORWARD_FLIGHT"/>  <!-- 3 -->
+      <entry value="5" name="TRANSITION_TO_HOVER"/> <!-- 4 -->
+      <entry value="6" name="SEARCHING_FOR_TARGET"/>  <!-- 4 -->
+      <entry value="7" name="LANDING_STATUS"/> <!-- 5 -->
+      <entry value="8" name="ORBIT"/> <!-- 5 --> 
+      <entry value="9" name="EMERGENCY_LAND_STATUS"/> <!-- 5 --> 
+      <entry value="10" name="PARACHUTE_DEPLOYED"/> <!-- 5 --> 
+      <entry value="11" name="ABORTING_TAKEOFF"/> <!-- 5 -->
     </enum>
 
     <enum name="SWOOP_INFLIGHT_FLAGS">
@@ -221,7 +227,6 @@
       <field type="uint16_t" name="armingCheckFlags1" enum="SWOOP_ARMING_CHECK_DETAIL_1">Flag bits to indicate which of the arming checks is failing</field>
       <field type="uint16_t" name="armingCheckFlags2" enum="SWOOP_ARMING_CHECK_DETAIL_2">Flag bits to indicate which of the arming checks is failing</field>
       <field type="uint16_t" name="armingCheckFlags3" enum="SWOOP_ARMING_CHECK_DETAIL_3">Flag bits to indicate which of the arming checks is failing</field>
-
     </message>
 
     <message id="6902" name="SWOOP_INFLIGHT_FLAGS_INSTANT">
@@ -301,7 +306,7 @@
     </message>
     
     <message id="6904" name="SWOOP_STATUS">
-      <description>Periodic ARMING status Flag Packet</description>
+      <description>Periodic flight status Flag Packet</description>
       <field type="uint8_t" name="flightStatus" enum="SWOOP_STATUS_TYPE">Enumerated type for flight stage</field>
     </message>
 
