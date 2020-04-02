@@ -226,7 +226,7 @@
       <field type="uint8_t" name="armingCheckStatus" enum="SWOOP_ARMING_CHECKS_PASSED">0 if all arming checks have passed, false otherwise</field>
       <field type="uint16_t" name="armingCheckFlags1" enum="SWOOP_ARMING_CHECK_DETAIL_1">Flag bits to indicate which of the arming checks is failing</field>
       <field type="uint16_t" name="armingCheckFlags2" enum="SWOOP_ARMING_CHECK_DETAIL_2">Flag bits to indicate which of the arming checks is failing</field>
-      <field type="uint16_t" name="armingCheckFlags3" enum="SWOOP_ARMING_CHECK_DETAIL_3">Flag bits to indicate which of the arming checks is failing</field>
+      <field type="uint16_t" name="armingCheckFlags3" enum="SWOOP_ARMING_CHECK_COMMON">Flag bits to indicate which of the arming checks is failing</field>
     </message>
 
     <message id="6902" name="SWOOP_INFLIGHT_FLAGS_INSTANT">
