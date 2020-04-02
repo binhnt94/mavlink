@@ -55,7 +55,7 @@
       <entry value="4" name="GPS_NOT_HEALTHY"/> <!-- 2 -->
       <entry value="8" name="GYRO_NOT_HEALTHY"/> <!-- 3 -->
       <entry value="16" name="ACCELS_NOT_HEALTHY"/> <!-- 4 -->
-      <entry value="32" name=" COMPASS_NOT_HEALTHY"/> <!-- 5 -->
+      <entry value="32" name="COMPASS_NOT_HEALTHY"/> <!-- 5 -->
       <entry value="64" name="HIGH_MAG_FIELD_STRENGTH"/> <!-- 6 -->
       <entry value="128" name="COMPASS_INCONSISTENT"/><!-- 7 -->
       <entry value="256" name="GPS_POSITIONS_DIFFERENT"/><!-- 8 -->
