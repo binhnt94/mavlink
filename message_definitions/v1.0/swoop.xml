@@ -203,6 +203,7 @@
       <entry value="9" name="EMERGENCY_LAND_STATUS"/> <!-- 5 --> 
       <entry value="10" name="PARACHUTE_DEPLOYED"/> <!-- 5 --> 
       <entry value="11" name="ABORTING_TAKEOFF"/> <!-- 5 -->
+      <entry value="12" name="STATUS_OTHER"/>
     </enum>
 
     <enum name="SWOOP_INFLIGHT_FLAGS">
@@ -316,8 +317,8 @@
     <message id="6904" name="SWOOP_STATUS">
       <description>Periodic flight status Flag Packet</description>
       <field type="uint8_t" name="flightStatus" enum="SWOOP_STATUS_TYPE">Enumerated type for flight stage</field>
-      <field type="uint8_t" name="waypointType"> Current waypoint type</field>
-      <field type="uint8_t" name="nextWaypointType"> Current waypoint type</field>
+      <field type="uint16_t" name="waypointType"> Current waypoint type</field>
+      <field type="uint16_t" name="nextWaypointType"> Current waypoint type</field>
     </message>
 
     <message id="6905" name="SWOOP_ENERGY">
