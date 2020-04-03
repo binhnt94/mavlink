@@ -11,6 +11,14 @@
      
     </enum>
 
+
+    <enum name="SWOOP_BATTERY_HEALTH">
+      <description>Flag bits to indicate if a battery is healthy</description>
+      <entry value="0" name="BATTERY_NOT_HEATLHY"/>  <!-- 0 -->
+      <entry value="1" name="BATTERY_HEALTHY"/>
+     
+    </enum>
+
     <enum name="SWOOP_ARMING_CHECK_DETAIL_1">
       <description>Flag bits to indicate which of the arming checks is failing</description>
       <entry value="1" name="SAFETY_SWITCH_DISSABLED"/>  <!-- 0 -->
@@ -308,7 +316,24 @@
     <message id="6904" name="SWOOP_STATUS">
       <description>Periodic flight status Flag Packet</description>
       <field type="uint8_t" name="flightStatus" enum="SWOOP_STATUS_TYPE">Enumerated type for flight stage</field>
+      <field type="uint8_t" name="waypointType"> Current waypoint type</field>
+      <field type="uint8_t" name="nextWaypointType"> Current waypoint type</field>
     </message>
+
+    <message id="6905" name="SWOOP_ENERGY">
+      <description>range remaining data</description>
+      <field type="uint16_t" name="ForwardEndurance" units="s"> Forward battery endurance remaining </field>
+      <field type="uint8_t" name="ForwardHealth" > Forward battery healthy </field>
+      <field type="uint8_t" name="ForwardWHrPortionRemaining" units="%"> Forward battery percentage left </field>
+      <field type="uint16_t" name="HoverETR" units="s"> Hover battery endurance remaining </field>
+      <field type="uint8_t" name="HoverEndurance"> Hover battery healthy </field>
+      <field type="uint8_t" name="HoverWHrPortionRemaining" units="%"> Forward battery percentage left </field>
+      <field type="uint16_t" name="ForwardTimeToNextLanding" units="s"> Estimated seconds of forward flight required to get to the next landing </field>
+      <field type="uint16_t" name="ForwardTimeToEndOfMission" units="s"> Estimated seconds of forward flight required to get to the end of the mission </field>
+      <field type="uint16_t" name="HoverTimeToNextLanding" units="s"> Estimated seconds of hover flight required to get to the next landing </field>
+      <field type="uint16_t" name="HoverTimeToEndOfMission" units="s"> Estimated seconds of hover flight required to get to the end of the mission </field>
+    </message> 
+
 
   </messages>
 </mavlink>
