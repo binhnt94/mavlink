@@ -325,8 +325,8 @@
       <field type="uint16_t" name="ForwardEndurance" units="s"> Forward battery endurance remaining </field>
       <field type="uint8_t" name="ForwardHealth" > Forward battery healthy </field>
       <field type="uint8_t" name="ForwardWHrPortionRemaining" units="%"> Forward battery percentage left </field>
-      <field type="uint16_t" name="HoverETR" units="s"> Hover battery endurance remaining </field>
-      <field type="uint8_t" name="HoverEndurance"> Hover battery healthy </field>
+      <field type="uint16_t" name="HoverEndurance" units="s"> Hover battery endurance remaining </field>
+      <field type="uint8_t" name="HoverHealth"> Hover battery healthy </field>
       <field type="uint8_t" name="HoverWHrPortionRemaining" units="%"> Forward battery percentage left </field>
       <field type="uint16_t" name="ForwardTimeToNextLanding" units="s"> Estimated seconds of forward flight required to get to the next landing </field>
       <field type="uint16_t" name="ForwardTimeToEndOfMission" units="s"> Estimated seconds of forward flight required to get to the end of the mission </field>
