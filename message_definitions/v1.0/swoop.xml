@@ -37,7 +37,6 @@
       <entry value="8192" name="MOTORS_ESTOP"/> <!-- 13 -->
       <entry value="16384" name="GPS_BLENDING_UNHEALTHY"/> <!-- 14 -->
       <entry value="32768" name="BAD_PARAMS"/>  <!-- 15 -->
-     
     </enum>
 
     <enum name="SWOOP_ARMING_CHECK_DETAIL_2">
@@ -319,6 +318,7 @@
       <field type="uint8_t" name="flightStatus" enum="SWOOP_STATUS_TYPE">Enumerated type for flight stage</field>
       <field type="uint16_t" name="waypointType"> Current waypoint type</field>
       <field type="uint16_t" name="nextWaypointType"> Current waypoint type</field>
+      <field type="uint16_t" name="waypointJumper"> waypointJumpCountIterator</field>
     </message>
 
     <message id="6905" name="SWOOP_ENERGY">
