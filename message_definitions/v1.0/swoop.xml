@@ -11,6 +11,13 @@
      
     </enum>
 
+    <enum name="SWOOP_TARGET">
+      <description>Flag bits to indicate if the armng checks have all been passed</description>
+      <entry value="0" name="NO_ISSUES"/>  <!-- 0 -->
+      <entry value="1" name="FAILED_PROCEED_WAYPOINT"/>
+      <entry value="2" name="FAILED_GPS_LAND"/>
+      <entry value="3" name="FAILED_CONTINGENCY"/>
+    </enum>
 
     <enum name="SWOOP_BATTERY_HEALTH">
       <description>Flag bits to indicate if a battery is healthy</description>
@@ -213,16 +220,16 @@
       <entry value="8" name="VIBRATION"/> <!-- 4 -->
       <entry value="16" name="HOVER_MOTORS"/> <!-- 5 -->
       <entry value="32" name="FORWARD_MOTORS"/> <!-- 6 -->
-      <entry value="64" name="LIDAR"/> <!-- 6 -->
-      <entry value="128" name="HOVER_BATTERY"/><!-- 7 -->
-      <entry value="256" name="FORWARD_BATTERY"/><!-- 8 -->
-      <entry value="512" name="ALTITUDE"/><!-- 9 -->
-      <entry value="1024" name="WIND"/><!-- 10 -->
-      <entry value="2048" name="HOVER_ATTITUDE"/><!-- 11 -->
-      <entry value="4096" name="LANDING"/><!-- 12 -->
-      <entry value="8192" name="AERODYNAMIC"/><!-- 13 -->
-      <entry value="16384" name="AIRSPEED"/><!-- 14 -->
-      <entry value="32768" name="SERVO"/><!-- 15 -->
+      <entry value="64" name="LIDAR"/> <!-- 7 -->
+      <entry value="128" name="HOVER_BATTERY"/><!-- 8 -->
+      <entry value="256" name="FORWARD_BATTERY"/><!-- 9 -->
+      <entry value="512" name="ALTITUDE"/><!-- 10 -->
+      <entry value="1024" name="WIND"/><!-- 11 -->
+      <entry value="2048" name="HOVER_ATTITUDE"/><!-- 12 -->
+      <entry value="4096" name="LANDING"/><!-- 13 -->
+      <entry value="8192" name="AERODYNAMIC"/><!-- 14 -->
+      <entry value="16384" name="AIRSPEED"/><!-- 15 -->
+      <entry value="32768" name="SERVO"/><!-- 16 -->
     </enum>
 
 
@@ -273,6 +280,7 @@
       <field type="uint8_t" name="aerodynamicDetail" enum="AERODYNAMIC_DETAIL">Flag bits to indicate detail of aerodymanic issues</field>
       <field type="uint8_t" name="airspeedDetail" enum="AIRSPEED_DETAIL">Flag bits to indicate detail of Airspeed issues</field>
       <field type="uint8_t" name="servoDetail" enum="SERVO_DETAIL">Flag bits to indicate detail of Servo issues</field>
+      <field type="uint8_t" name="targetSearchFailed" enum="SWOOP_TARGET"> Flag bit to indicate if VLAND search failed</field>
     </message>
 
     <message id="6903" name="SWOOP_INFLIGHT_FLAGS_PERSISTENT">
@@ -334,6 +342,16 @@
       <field type="uint16_t" name="HoverTimeToNextLanding" units="s"> Estimated seconds of hover flight required to get to the next landing </field>
       <field type="uint16_t" name="HoverTimeToEndOfMission" units="s"> Estimated seconds of hover flight required to get to the end of the mission </field>
     </message> 
+
+    <message id="6906" name="SWOOP_AIRSPEED">
+      <description>Periodic flight status Flag Packet</description>
+      <field type="uint16_t" name="trueAirspeed"> Enumerated type for flight stage</field>
+      <field type="uint16_t" name="trueTrimSpeed"> Current waypoint type</field>
+      <field type="uint16_t" name="eas2tas"> </field>
+ 
+    </message>
+
+
 
 
   </messages>
