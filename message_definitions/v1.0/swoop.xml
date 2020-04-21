@@ -78,6 +78,13 @@
 
     </enum>
 
+    <enum name="SWOOP_ADSB_FLAGS">
+      <description>Flag bits to indicate intensity of inflight issues</description>
+      <entry value="1" name="SWOOP_VEHICLE_DETECTED"/><!-- 1 -->
+      <entry value="2" name="SWOOP_THREAT_DETECTED"/><!-- 2 -->
+    </enum>
+
+
     <enum name="SWOOP_FLAG_INTENSITY">
       <description>Flag bits to indicate intensity of inflight issues</description>
       <entry value="0" name="NO_FLAG"/><!-- 0 -->
@@ -281,6 +288,7 @@
       <field type="uint8_t" name="airspeedDetail" enum="AIRSPEED_DETAIL">Flag bits to indicate detail of Airspeed issues</field>
       <field type="uint8_t" name="servoDetail" enum="SERVO_DETAIL">Flag bits to indicate detail of Servo issues</field>
       <field type="uint8_t" name="targetSearchFailed" enum="SWOOP_TARGET"> Flag bit to indicate if VLAND search failed</field>
+      <field type="uint8_t" name="adsbFlags" enum="SWOOP_ADSB_FLAGS"> Flag bit to indicate if the adsb reciever has detected anything</field>
     </message>
 
     <message id="6903" name="SWOOP_INFLIGHT_FLAGS_PERSISTENT">
