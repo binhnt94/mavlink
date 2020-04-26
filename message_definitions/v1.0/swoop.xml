@@ -274,7 +274,7 @@
       <field type="uint8_t" name="airspeedIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Airspeed issues</field>
       <field type="uint8_t" name="servoIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Servo issues</field>
       <field type="uint8_t" name="targetSearchFailedIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Servo issues</field>
-      <field type="uint8_t" name="adsbFlagsDetailIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Servo issues</field>
+      <field type="uint8_t" name="adsbFlagsIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Servo issues</field>
       <field type="uint8_t" name="hoverAssistDetail" enum="SWOOP_HOVER_ASSIST_DETAIL">Flag bits to indicate detail of Hover Assist issues</field>
       <field type="uint8_t" name="emergencyLandDetail" enum="SWOOP_EMERGENCY_LAND_DETAIL">Flag bits to indicate detail of Emergency Land issues</field>
       <field type="uint8_t" name="gpsDetail" enum="SWOOP_GPS_HEALTH_DETAIL">Flag bits to indicate detail of GPS issues</field>
