@@ -237,6 +237,8 @@
       <entry value="8192" name="AERODYNAMIC"/><!-- 14 -->
       <entry value="16384" name="AIRSPEED"/><!-- 15 -->
       <entry value="32768" name="SERVO"/><!-- 16 -->
+      <entry value="65536" name="PLAND_ABORT"/>
+      <entry value="131072" name="ADSB_FLAG"/>
     </enum>
 
 
@@ -253,7 +255,7 @@
 
     <message id="6902" name="SWOOP_INFLIGHT_FLAGS_INSTANT">
       <description>Periodic INFLIGHT Flag Packet</description>
-      <field type="uint16_t" name="inflightFlags" enum="SWOOP_INFLIGHT_FLAGS">Status bits to show overall summary of inflight status issues</field>
+      <field type="uint32_t" name="inflightFlags" enum="SWOOP_INFLIGHT_FLAGS">Status bits to show overall summary of inflight status issues</field>
       <field type="uint8_t" name="maximumIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate how bad the worst issue is</field>
       <field type="uint8_t" name="hoverAssistIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Hover Assist issues</field>
       <field type="uint8_t" name="emergencyLandIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Emergency Land issues</field>
@@ -271,6 +273,8 @@
       <field type="uint8_t" name="aerodynamicIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of aerodymanic issues</field>
       <field type="uint8_t" name="airspeedIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Airspeed issues</field>
       <field type="uint8_t" name="servoIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Servo issues</field>
+      <field type="uint8_t" name="targetSearchFailedIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Servo issues</field>
+      <field type="uint8_t" name="adsbFlagsDetailIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Servo issues</field>
       <field type="uint8_t" name="hoverAssistDetail" enum="SWOOP_HOVER_ASSIST_DETAIL">Flag bits to indicate detail of Hover Assist issues</field>
       <field type="uint8_t" name="emergencyLandDetail" enum="SWOOP_EMERGENCY_LAND_DETAIL">Flag bits to indicate detail of Emergency Land issues</field>
       <field type="uint8_t" name="gpsDetail" enum="SWOOP_GPS_HEALTH_DETAIL">Flag bits to indicate detail of GPS issues</field>
@@ -287,46 +291,8 @@
       <field type="uint8_t" name="aerodynamicDetail" enum="AERODYNAMIC_DETAIL">Flag bits to indicate detail of aerodymanic issues</field>
       <field type="uint8_t" name="airspeedDetail" enum="AIRSPEED_DETAIL">Flag bits to indicate detail of Airspeed issues</field>
       <field type="uint8_t" name="servoDetail" enum="SERVO_DETAIL">Flag bits to indicate detail of Servo issues</field>
-      <field type="uint8_t" name="targetSearchFailed" enum="SWOOP_TARGET"> Flag bit to indicate if VLAND search failed</field>
-      <field type="uint8_t" name="adsbFlags" enum="SWOOP_ADSB_FLAGS"> Flag bit to indicate if the adsb reciever has detected anything</field>
-    </message>
-
-    <message id="6903" name="SWOOP_INFLIGHT_FLAGS_PERSISTENT">
-      <description>Periodic Send of persistent inflight status flags - Resets on Arm</description>
-      <field type="uint16_t" name="inflightFlags" enum="SWOOP_INFLIGHT_FLAGS">Status bits to show overall summary of inflight status issues</field>
-      <field type="uint8_t" name="maximumIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate how bad the worst issue is</field>
-      <field type="uint8_t" name="hoverAssistIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Hover Assist issues</field>
-      <field type="uint8_t" name="emergencyLandIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Emergency Land issues</field>
-      <field type="uint8_t" name="gpsIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of GPS issues</field>
-      <field type="uint8_t" name="vibrationIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Vibration issues</field>
-      <field type="uint8_t" name="hoverMotorIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Hover Motor issues</field>
-      <field type="uint8_t" name="forwardMotorIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Forward Motor issues</field>
-      <field type="uint8_t" name="lidarIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Lidar issues</field>
-      <field type="uint8_t" name="hoverBatteryIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Hover Battery issues</field>
-      <field type="uint8_t" name="forwardBatteryIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Forward Battery issues</field>
-      <field type="uint8_t" name="altitudeIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Altitude hold issues</field>
-      <field type="uint8_t" name="windIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Wind Strength issues</field>
-      <field type="uint8_t" name="hoverAttitudeIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Hover Attitude issues</field>
-      <field type="uint8_t" name="landingIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Landing issues</field>
-      <field type="uint8_t" name="aerodynamicIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of aerodymanic issues</field>
-      <field type="uint8_t" name="airspeedIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Airspeed issues</field>
-      <field type="uint8_t" name="servoIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Servo issues</field>
-      <field type="uint8_t" name="hoverAssistDetail" enum="SWOOP_HOVER_ASSIST_DETAIL">Flag bits to indicate detail of Hover Assist issues</field>
-      <field type="uint8_t" name="emergencyLandDetail" enum="SWOOP_EMERGENCY_LAND_DETAIL">Flag bits to indicate detail of Emergency Land issues</field>
-      <field type="uint8_t" name="gpsDetail" enum="SWOOP_GPS_HEALTH_DETAIL">Flag bits to indicate detail of GPS issues</field>
-      <field type="uint8_t" name="vibrationDetail" enum="SWOOP_NO_DETAIL">Flag bits to indicate detail of Vibration issues</field>
-      <field type="uint8_t" name="hoverMotorDetail" enum="SWOOP_HOVER_MOTOR_FAIL_DETAIL">Flag bits to indicate detail of Hover Motor issues</field>
-      <field type="uint8_t" name="forwardMotorDetail" enum="SWOOP_FORWARD_MOTOR_FAIL_DETAIL">Flag bits to indicate detail of Forward Motor issues</field>
-      <field type="uint8_t" name="lidarDetail" enum="LIDAR_DETAIL">Flag bits to indicate detail of Lidar issues</field>
-      <field type="uint8_t" name="hoverBatteryDetail" enum="FORWARD_BATTERY_DETAIL">Flag bits to indicate detail of Hover Battery issues</field>
-      <field type="uint8_t" name="forwardBatteryDetail" enum="HOVER_BATTERY_DETAIL">Flag bits to indicate detail of Forward Battery issues</field>
-      <field type="uint8_t" name="altitudeDetail" enum="ALTITTUDE_DETAIL">Flag bits to indicate detail of Altitude hold issues</field>
-      <field type="uint8_t" name="windDetail" enum="SWOOP_NO_DETAIL">Flag bits to indicate detail of Wind Strength issues</field>
-      <field type="uint8_t" name="hoverAttitudeDetail" enum="SWOOP_NO_DETAIL">Flag bits to indicate detail of Hover Attitude issues</field>
-      <field type="uint8_t" name="landingDetail" enum="LANDING_DETAIL">Flag bits to indicate detail of Landing issues</field>
-      <field type="uint8_t" name="aerodynamicDetail" enum="AERODYNAMIC_DETAIL">Flag bits to indicate detail of aerodymanic issues</field>
-      <field type="uint8_t" name="airspeedDetail" enum="AIRSPEED_DETAIL">Flag bits to indicate detail of Airspeed issues</field>
-      <field type="uint8_t" name="servoDetail" enum="SERVO_DETAIL">Flag bits to indicate detail of Servo issues</field>
+      <field type="uint8_t" name="targetSearchFailedDetail" enum="SWOOP_TARGET"> Flag bit to indicate if VLAND search failed</field>
+      <field type="uint8_t" name="adsbFlagsDetail" enum="SWOOP_ADSB_FLAGS"> Flag bit to indicate if the adsb reciever has detected anything</field>
     </message>
     
     <message id="6904" name="SWOOP_STATUS">
