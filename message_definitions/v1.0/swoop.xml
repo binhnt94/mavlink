@@ -81,7 +81,8 @@
     <enum name="SWOOP_ADSB_FLAGS">
       <description>Flag bits to indicate intensity of inflight issues</description>
       <entry value="1" name="SWOOP_VEHICLE_DETECTED"/><!-- 1 -->
-      <entry value="2" name="SWOOP_THREAT_DETECTED"/><!-- 2 -->
+      <entry value="2" name="SWOOP_W_THREAT_DETECTED"/><!-- 2 -->
+      <entry value="4" name="SWOOP_F_THREAT_DETECTED"/><!-- 2 -->
     </enum>
 
 
