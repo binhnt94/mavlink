@@ -302,6 +302,7 @@
       <field type="uint16_t" name="waypointType"> Current waypoint type</field>
       <field type="uint16_t" name="nextWaypointType"> Current waypoint type</field>
       <field type="uint16_t" name="waypointJumper"> waypointJumpCountIterator</field>
+      <field type="uint16_t" name="nextWaypoint"> The next waypoint number </field>
     </message>
 
     <message id="6905" name="SWOOP_ENERGY">
