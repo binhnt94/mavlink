@@ -1629,11 +1629,11 @@
       <field type="uint16_t"  name="rpm">Engine speed in revolutions per minute.</field>      
       <field type="uint32_t"  name="fuelUsed">Fuel used in grams.</field>      
       <field type="uint16_t"  name="throttlePulse">Throttle pulse width in microseconds.</field>      
-      <field type="float"     name="baro">Barometric pressure in kilo-Pascals.</field>    
-      <field type="float"     name="fuelPressure">Fuel pressure in kilo-Pascals.</field>      
+      <field type="float"     name="CHT">Cylinder Head Temperature in Celsius degrees.</field>    
+      <field type="float"     name="fuelPressure">Fuel pressure in Bar.</field>      
       <field type="uint32_t"  name="hobbs">Engine run time in seconds.</field>       
       <field type="float"     name="cpuLoad">CPU load in percent.</field>         
-      <field type="float"     name="chargeTemp">Charge temperature in Celsius.</field>          
+      <field type="float"     name="chargeTemp">Charge temperature in Celsius degrees.</field>          
       <field type="float"     name="flowRate">Fuel flow rate in grams per minute.</field>      
     </message>
     <!-- Binh end -->
