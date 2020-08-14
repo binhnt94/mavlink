@@ -31,6 +31,16 @@
         <param index="7">Empty.</param>
       </entry>
       <!-- Binh end -->
+    <entry value="188" name="MAV_CMD_DO_HEATER_ONOFF">
+        <description>Manual turn on or off heater pitot on/off.</description>
+        <param index="1">Empty.</param>
+        <param index="2">Empty.</param>
+        <param index="3">Empty.</param>
+        <param index="4">Empty.</param>
+        <param index="5">Empty.</param>
+        <param index="6">Empty.</param>
+        <param index="7">Empty.</param>
+    </entry>
       <entry value="211" name="MAV_CMD_DO_GRIPPER">
         <description>Mission command to operate EPM gripper.</description>
         <param index="1">Gripper number (a number from 1 to max number of grippers on the vehicle).</param>
@@ -44,6 +54,16 @@
       <entry value="212" name="MAV_CMD_DO_AUTOTUNE_ENABLE">
         <description>Enable/disable autotune.</description>
         <param index="1">Enable (1: enable, 0:disable).</param>
+        <param index="2">Empty.</param>
+        <param index="3">Empty.</param>
+        <param index="4">Empty.</param>
+        <param index="5">Empty.</param>
+        <param index="6">Empty.</param>
+        <param index="7">Empty.</param>
+      </entry>
+      <entry value="215" name="MAV_CMD_RESET_FUELUSED">
+        <description>Manual reset fuelUsed via ECUCAN.</description>
+        <param index="1">Empty.</param>
         <param index="2">Empty.</param>
         <param index="3">Empty.</param>
         <param index="4">Empty.</param>
@@ -1611,19 +1631,26 @@
       <field type="float" name="Raw_fuel_level">Raw fuel level.</field>
       <field type="float" name="env_temp">Environment temperature.</field>
       <field type="float" name="env_RH">Environment relative humidity.</field>
+      <field type="float" name="Voltage12S_ADC">Voltage battery quad.</field>
     </message>
     <message id="11026" name="PW">
       <description>CE1000 Power supply.</description>
       <field type="float" name="VbattA">Voltage battery A.</field>
       <field type="float" name="IbattA">Current battery A.</field>
-      <field type="float" name="EbattA">Energy battery A.</field>
       <field type="float" name="VbattB">Voltage battery B.</field>
       <field type="float" name="IbattB">Current battery B.</field>
-      <field type="float" name="EbattB">Energy battery B.</field>
-      <field type="float" name="Vbatt12S">Voltage battery 12S.</field>      
-      <field type="float" name="pw_temp">Internal temperature.</field>      
+      <field type="float" name="Vgen">Voltage generator.</field>
+      <field type="float" name="Vavionics">Voltage avionics.</field>
+      <field type="float" name="Iavionics">Current avionics.</field>  
+      <field type="float" name="Vpayload">Voltage payload.</field> 
+      <field type="float" name="Ipayload">Current payload.</field> 
+      <field type="float" name="Vservo">Voltage servo.</field>     
+      <field type="float" name="Iservo">Current servo.</field> 
+      <field type="float" name="V28DC">Voltage 28VDC.</field> 
+      <field type="float" name="I28DC">Current 28VDC.</field> 
+      <field type="int8_t" name="pw_temp">Internal temperature.</field>      
     </message>
-    <message id="11027" name="ECU">
+   <message id="11027" name="ECU">
       <description>Currawong ECU.</description>         
       <field type="float"     name="throttle">Throttle signal (0 to 100%).</field>       
       <field type="uint16_t"  name="rpm">Engine speed in revolutions per minute.</field>      
