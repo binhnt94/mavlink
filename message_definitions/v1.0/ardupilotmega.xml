@@ -1648,7 +1648,9 @@
       <field type="float" name="Iservo">Current servo.</field> 
       <field type="float" name="V28DC">Voltage 28VDC.</field> 
       <field type="float" name="I28DC">Current 28VDC.</field> 
-      <field type="int8_t" name="pw_temp">Internal temperature.</field>      
+      <field type="int8_t" name="pw_temp">Internal temperature.</field> 
+      <field type="int16_t" name="EnergyA">Energy battery A.</field> 
+      <field type="int16_t" name="EnergyB">Energy battery B.</field>      
     </message>
    <message id="11027" name="ECU">
       <description>Currawong ECU.</description>         
