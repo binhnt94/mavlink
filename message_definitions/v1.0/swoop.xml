@@ -8,7 +8,7 @@
       <description>Flag bits to indicate if the armng checks have all been passed</description>
       <entry value="0" name="READY_TO_ARM"/>  <!-- 0 -->
       <entry value="1" name="ARMING_CHECK_FAILED"/>
-     
+
     </enum>
 
     <enum name="SWOOP_TARGET">
@@ -23,7 +23,7 @@
       <description>Flag bits to indicate if a battery is healthy</description>
       <entry value="0" name="BATTERY_NOT_HEATLHY"/>  <!-- 0 -->
       <entry value="1" name="BATTERY_HEALTHY"/>
-     
+
     </enum>
 
     <enum name="SWOOP_ARMING_CHECK_DETAIL_1">
@@ -44,22 +44,17 @@
       <entry value="8192" name="MOTORS_ESTOP"/> <!-- 13 -->
       <entry value="16384" name="GPS_BLENDING_UNHEALTHY"/> <!-- 14 -->
       <entry value="32768" name="BAD_PARAMS"/>  <!-- 15 -->
-    </enum>
-
-    <enum name="SWOOP_ARMING_CHECK_DETAIL_2">
-      <description>Flag bits to indicate which of the arming checks is failing2</description>
-      <entry value="1" name="AIRSPEED_1_NOT_HEALTHY"/>  <!-- 0 -->
-      <entry value="2" name="AIRSPEED_2_NOT_HEALTHY"/> <!-- 1 -->
-      <entry value="4" name="AIRSPEED_3_NOT_HEALTHY"/> <!-- 2 -->
-      <entry value="8" name="AIRSPEED_4_NOT_HEALTHY"/> <!-- 3 -->
-      <entry value="16" name="QUADPLANE_NOT_RUNNING"/> <!-- 4 -->
-      <entry value="32" name="BATTERY_PROBLEM"/> <!-- 5 -->
-      <entry value="64" name="LOGGING_FAILED"/> <!-- 6 -->
-      <entry value="128" name="NO_SD_CARD"/><!-- 7 -->
-      <entry value="256" name="MANUAL_TRANSMITTER_PROBLEM"/><!-- 8 -->
-      <entry value="512" name="NO_MISSION_LOADED"/><!-- 9 -->
-      <entry value="1024" name="MISSION_MISSING_ELEMENTS"/><!-- 10 -->
-
+      <entry value="65536" name="AIRSPEED_1_NOT_HEALTHY"/>  <!-- 16 -->
+      <entry value="131072" name="AIRSPEED_2_NOT_HEALTHY"/> <!-- 17 -->
+      <entry value="262144" name="AIRSPEED_3_NOT_HEALTHY"/> <!-- 18 -->
+      <entry value="524288" name="AIRSPEED_4_NOT_HEALTHY"/> <!-- 19 -->
+      <entry value="1048576" name="QUADPLANE_NOT_RUNNING"/> <!-- 20 -->
+      <entry value="2097152" name="BATTERY_PROBLEM"/> <!-- 21 -->
+      <entry value="4194304" name="LOGGING_FAILED"/> <!-- 22 -->
+      <entry value="8388608" name="NO_SD_CARD"/><!-- 23 -->
+      <entry value="16777216" name="MANUAL_TRANSMITTER_PROBLEM"/><!-- 24 -->
+      <entry value="33554432" name="NO_MISSION_LOADED"/><!-- 25 -->
+      <entry value="67108864" name="MISSION_MISSING_ELEMENTS"/><!-- 26 -->
     </enum>
 
     <enum name="SWOOP_ARMING_CHECK_COMMON">
@@ -200,7 +195,7 @@
       <entry value="8" name="AILERON_SERVO_FAILURE_DETECTED"/> <!-- 4 -->
       <entry value="16" name="RUDDER_SERVO_POSITION_OFFSET_DETECTED"/>  <!-- 4 -->
       <entry value="32" name="RUDDER_SERVO_FAILURE_DETECTED"/> <!-- 5 -->
-      
+
     </enum>
 
     <enum name="SWOOP_STATUS_TYPE">
@@ -213,9 +208,9 @@
       <entry value="5" name="TRANSITION_TO_HOVER"/> <!-- 4 -->
       <entry value="6" name="SEARCHING_FOR_TARGET"/>  <!-- 4 -->
       <entry value="7" name="LANDING_STATUS"/> <!-- 5 -->
-      <entry value="8" name="ORBIT"/> <!-- 5 --> 
-      <entry value="9" name="EMERGENCY_LAND_STATUS"/> <!-- 5 --> 
-      <entry value="10" name="PARACHUTE_DEPLOYED"/> <!-- 5 --> 
+      <entry value="8" name="ORBIT"/> <!-- 5 -->
+      <entry value="9" name="EMERGENCY_LAND_STATUS"/> <!-- 5 -->
+      <entry value="10" name="PARACHUTE_DEPLOYED"/> <!-- 5 -->
       <entry value="11" name="ABORTING_TAKEOFF"/> <!-- 5 -->
       <entry value="12" name="STATUS_OTHER"/>
     </enum>
@@ -242,16 +237,14 @@
       <entry value="131072" name="ADSB_FLAG"/>
     </enum>
 
-
   </enums>
 
   <messages>
     <message id="6901" name="SWOOP_ARMING_FLAGS">
       <description>Periodic ARMING status Flag Packet</description>
       <field type="uint8_t" name="armingCheckStatus" enum="SWOOP_ARMING_CHECKS_PASSED">0 if all arming checks have passed, false otherwise</field>
-      <field type="uint16_t" name="armingCheckFlags1" enum="SWOOP_ARMING_CHECK_DETAIL_1">Flag bits to indicate which of the arming checks is failing</field>
-      <field type="uint16_t" name="armingCheckFlags2" enum="SWOOP_ARMING_CHECK_DETAIL_2">Flag bits to indicate which of the arming checks is failing</field>
-      <field type="uint16_t" name="armingCheckFlags3" enum="SWOOP_ARMING_CHECK_COMMON">Flag bits to indicate which of the arming checks is failing</field>
+      <field type="uint32_t" name="armingCheckFlags1" enum="SWOOP_ARMING_CHECK_DETAIL_1">Flag bits to indicate which of the arming checks is failing</field>
+      <field type="uint16_t" name="armingCheckFlagsCommon" enum="SWOOP_ARMING_CHECK_COMMON">Flag bits to indicate which of the arming checks is failing</field>
     </message>
 
     <message id="6902" name="SWOOP_INFLIGHT_FLAGS_INSTANT">
@@ -295,7 +288,7 @@
       <field type="uint8_t" name="targetSearchFailedDetail" enum="SWOOP_TARGET"> Flag bit to indicate if VLAND search failed</field>
       <field type="uint8_t" name="adsbFlagsDetail" enum="SWOOP_ADSB_FLAGS"> Flag bit to indicate if the adsb reciever has detected anything</field>
     </message>
-    
+
     <message id="6904" name="SWOOP_STATUS">
       <description>Periodic flight status Flag Packet</description>
       <field type="uint8_t" name="flightStatus" enum="SWOOP_STATUS_TYPE">Enumerated type for flight stage</field>
@@ -317,14 +310,14 @@
       <field type="uint16_t" name="ForwardTimeToEndOfMission" units="s"> Estimated seconds of forward flight required to get to the end of the mission </field>
       <field type="uint16_t" name="HoverTimeToNextLanding" units="s"> Estimated seconds of hover flight required to get to the next landing </field>
       <field type="uint16_t" name="HoverTimeToEndOfMission" units="s"> Estimated seconds of hover flight required to get to the end of the mission </field>
-    </message> 
+    </message>
 
     <message id="6906" name="SWOOP_AIRSPEED">
       <description>Periodic flight status Flag Packet</description>
       <field type="uint16_t" name="trueAirspeed"> Enumerated type for flight stage</field>
       <field type="uint16_t" name="trueTrimSpeed"> Current waypoint type</field>
       <field type="uint16_t" name="eas2tas"> </field>
- 
+
     </message>
 
 
