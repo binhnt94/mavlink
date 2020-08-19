@@ -28,33 +28,33 @@
 
     <enum name="SWOOP_ARMING_CHECK_DETAIL_1">
       <description>Flag bits to indicate which of the arming checks is failing</description>
-      <entry value="1" name="SAFETY_SWITCH_DISSABLED"/>  <!-- 0 -->
-      <entry value="2" name="BAROMETER_NOT_HEALTHY"/> <!-- 1 -->
-      <entry value="4" name="CAN_BUS_NOT_HEALTHY"/> <!-- 2 -->
-      <entry value="8" name="GYRO_NOT_CALIBRATED"/> <!-- 3 -->
-      <entry value="16" name="GYROS_INCONSISTENT"/> <!-- 4 -->
-      <entry value="32" name="PROXIMITY_ERROR"/> <!-- 5 -->
-      <entry value="64" name="ACCELS_NOT_CALIBRATED"/> <!-- 6 -->
-      <entry value="128" name="ACCELS_INCONSISTENT"/> <!-- 7 -->
-      <entry value="256" name="RANGEFINDER_NOT_HEALTHY"/> <!-- 8 -->
-      <entry value="512" name="COMPASS_NOT_CALIBRATED"/> <!-- 9 -->
-      <entry value="1024" name="COMPASS_OFFSETS"/> <!-- 10 -->
-      <entry value="2048" name="AUTOPILOT_VOLTAGE_ERROR"/> <!-- 11 -->
-      <entry value="4096" name="AUTOPILOT_INTERNAL_SYSTEM_ERROR"/> <!-- 12 -->
-      <entry value="8192" name="MOTORS_ESTOP"/> <!-- 13 -->
-      <entry value="16384" name="GPS_BLENDING_UNHEALTHY"/> <!-- 14 -->
-      <entry value="32768" name="BAD_PARAMS"/>  <!-- 15 -->
-      <entry value="65536" name="AIRSPEED_1_NOT_HEALTHY"/>  <!-- 16 -->
-      <entry value="131072" name="AIRSPEED_2_NOT_HEALTHY"/> <!-- 17 -->
-      <entry value="262144" name="AIRSPEED_3_NOT_HEALTHY"/> <!-- 18 -->
-      <entry value="524288" name="AIRSPEED_4_NOT_HEALTHY"/> <!-- 19 -->
-      <entry value="1048576" name="QUADPLANE_NOT_RUNNING"/> <!-- 20 -->
-      <entry value="2097152" name="BATTERY_PROBLEM"/> <!-- 21 -->
-      <entry value="4194304" name="LOGGING_FAILED"/> <!-- 22 -->
-      <entry value="8388608" name="NO_SD_CARD"/><!-- 23 -->
-      <entry value="16777216" name="MANUAL_TRANSMITTER_PROBLEM"/><!-- 24 -->
-      <entry value="33554432" name="NO_MISSION_LOADED"/><!-- 25 -->
-      <entry value="67108864" name="MISSION_MISSING_ELEMENTS"/><!-- 26 -->
+      <entry value="1" name="AIRSPEED_1_NOT_HEALTHY"/>  <!-- 0 -->
+      <entry value="2" name="AIRSPEED_2_NOT_HEALTHY"/> <!-- 1 -->
+      <entry value="4" name="AIRSPEED_3_NOT_HEALTHY"/> <!-- 2 -->
+      <entry value="8" name="AIRSPEED_4_NOT_HEALTHY"/> <!-- 3 -->
+      <entry value="16" name="QUADPLANE_NOT_RUNNING"/> <!-- 4 -->
+      <entry value="32" name="BATTERY_PROBLEM"/> <!-- 5 -->
+      <entry value="64" name="LOGGING_FAILED"/> <!-- 6 -->
+      <entry value="128" name="NO_SD_CARD"/><!-- 7 -->
+      <entry value="256" name="MANUAL_TRANSMITTER_PROBLEM"/><!-- 8 -->
+      <entry value="512" name="NO_MISSION_LOADED"/><!-- 9 -->
+      <entry value="1024" name="MISSION_MISSING_ELEMENTS"/><!-- 10 -->
+      <entry value="2048" name="SAFETY_SWITCH_DISSABLED"/>  <!-- 11 -->
+      <entry value="4096" name="BAROMETER_NOT_HEALTHY"/> <!-- 12 -->
+      <entry value="8192" name="CAN_BUS_NOT_HEALTHY"/> <!-- 13 -->
+      <entry value="16384" name="GYRO_NOT_CALIBRATED"/> <!-- 14 -->
+      <entry value="32768" name="GYROS_INCONSISTENT"/> <!-- 15 -->
+      <entry value="65536" name="PROXIMITY_ERROR"/> <!-- 16 -->
+      <entry value="131072" name="ACCELS_NOT_CALIBRATED"/> <!-- 17 -->
+      <entry value="262144" name="ACCELS_INCONSISTENT"/> <!-- 18 -->
+      <entry value="524288" name="RANGEFINDER_NOT_HEALTHY"/> <!-- 19 -->
+      <entry value="1048576" name="COMPASS_NOT_CALIBRATED"/> <!-- 20 -->
+      <entry value="2097152" name="COMPASS_OFFSETS"/> <!-- 21 -->
+      <entry value="4194304" name="AUTOPILOT_VOLTAGE_ERROR"/> <!-- 22 -->
+      <entry value="8388608" name="AUTOPILOT_INTERNAL_SYSTEM_ERROR"/> <!-- 23 -->
+      <entry value="16777216" name="MOTORS_ESTOP"/> <!-- 24 -->
+      <entry value="33554432" name="GPS_BLENDING_UNHEALTHY"/> <!-- 25 -->
+      <entry value="67108864" name="BAD_PARAMS"/>  <!-- 26 -->
     </enum>
 
     <enum name="SWOOP_ARMING_CHECK_COMMON">
@@ -319,9 +319,5 @@
       <field type="uint16_t" name="eas2tas"> </field>
 
     </message>
-
-
-
-
   </messages>
 </mavlink>
