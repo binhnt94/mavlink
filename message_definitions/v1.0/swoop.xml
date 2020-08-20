@@ -70,6 +70,7 @@
       <entry value="256" name="GPS_POSITIONS_DIFFERENT"/><!-- 8 -->
       <entry value="512" name="GPS_DIFFERENT_TO_EKF"/><!-- 9 -->
       <entry value="1024" name="ADSB_THREAT"/><!-- 10 -->
+      <entry value="2048" name="DUAL_GPS_YAW_FAILURE"/><!-- 11 -->
 
     </enum>
 
