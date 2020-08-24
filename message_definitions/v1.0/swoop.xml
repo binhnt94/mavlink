@@ -188,6 +188,15 @@
       <entry value="32" name="AIRSPEED_SENSOR_4"/> <!-- 5 -->
     </enum>
 
+    <enum name="SWOOP_YAW_DETAIL">
+      <description>Flag bits to indicate detail of yaw issues</description>
+      <entry value="1" name="YAW_DUAL_GPS_FAILURE"/>
+      <entry value="2" name="YAW_COMPASS_FALLBACK_NOT_HEALTHY"/>
+      <entry value="4" name="YAW_COMPASS_FALLBACK_ACTIVE"/>
+      <entry value="8" name="YAW_COMPASS_NOT_HEALTHY"/>
+      <entry value="16" name="YAW_COMPASS_INCONSISTENT"/>
+    </enum>
+
     <enum name="SERVO_DETAIL">
       <description>Flag bits to indicate servo issues</description>
       <entry value="1" name="ELEVATOR_SERVO_POSITION_OFFSET_DETECTED"/>  <!-- 01 -->
@@ -234,8 +243,9 @@
       <entry value="8192" name="AERODYNAMIC"/><!-- 14 -->
       <entry value="16384" name="AIRSPEED"/><!-- 15 -->
       <entry value="32768" name="SERVO"/><!-- 16 -->
-      <entry value="65536" name="PLAND_ABORT"/>
-      <entry value="131072" name="ADSB_FLAG"/>
+      <entry value="65536" name="PLAND_ABORT"/><!-- 17 -->
+      <entry value="131072" name="ADSB_FLAG"/><!-- 18 -->
+      <entry value="262144" name="YAW"/><!-- 19 -->
     </enum>
 
   </enums>
@@ -270,6 +280,7 @@
       <field type="uint8_t" name="servoIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Servo issues</field>
       <field type="uint8_t" name="targetSearchFailedIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Servo issues</field>
       <field type="uint8_t" name="adsbFlagsIntensity" enum="SWOOP_FLAG_INTENSITY">Flag bits to indicate intensity of Servo issues</field>
+      <field type="uint8_t" name="yawIntensity" enum="SWOOP_FLAG_INTENSITY"> Flag bits to indicate intensity of yaw issues</field>
       <field type="uint8_t" name="hoverAssistDetail" enum="SWOOP_HOVER_ASSIST_DETAIL">Flag bits to indicate detail of Hover Assist issues</field>
       <field type="uint8_t" name="emergencyLandDetail" enum="SWOOP_EMERGENCY_LAND_DETAIL">Flag bits to indicate detail of Emergency Land issues</field>
       <field type="uint8_t" name="gpsDetail" enum="SWOOP_GPS_HEALTH_DETAIL">Flag bits to indicate detail of GPS issues</field>
@@ -288,6 +299,7 @@
       <field type="uint8_t" name="servoDetail" enum="SERVO_DETAIL">Flag bits to indicate detail of Servo issues</field>
       <field type="uint8_t" name="targetSearchFailedDetail" enum="SWOOP_TARGET"> Flag bit to indicate if VLAND search failed</field>
       <field type="uint8_t" name="adsbFlagsDetail" enum="SWOOP_ADSB_FLAGS"> Flag bit to indicate if the adsb reciever has detected anything</field>
+      <field type="uint8_t" name="yawDetail" enum="SWOOP_YAW_DETAIL"> Flag bits to indicate detail of yaw issues</field>
     </message>
 
     <message id="6904" name="SWOOP_STATUS">
