@@ -55,8 +55,8 @@
       <entry value="16777216" name="MOTORS_ESTOP"/> <!-- 24 -->
       <entry value="33554432" name="GPS_BLENDING_UNHEALTHY"/> <!-- 25 -->
       <entry value="67108864" name="BAD_PARAMS"/>  <!-- 26 -->
-      <entry value="134217728" name="WING_LEFT_NOT_CONNECTED"/>  <!-- 27 -->
-      <entry value="268435456" name="WING_RIGHT_NOT_CONNECTED"/>  <!-- 28 -->
+      <entry value="134217728" name="LEFT_WING_NOT_CONNECTED"/>  <!-- 27 -->
+      <entry value="268435456" name="RIGHT_WING_NOT_CONNECTED"/>  <!-- 28 -->
     </enum>
 
     <enum name="SWOOP_ARMING_CHECK_COMMON">
@@ -159,7 +159,6 @@
       <description>Flag bits to indicate battery issues</description>
       <entry value="1" name="HOVER_ENDURANCE"/> <!-- 3 -->
       <entry value="2" name="HOVER_BATTERY_FAILURE_DETECTED"/> <!-- 7 -->
-      <entry value="4" name="HOVER_BATTERY_FAILURE_DETECTED"/>
     </enum>
 
      <enum name="ALTITTUDE_DETAIL">
@@ -224,8 +223,8 @@
 
     <enum name="WINGS_DETAIL">
       <description>Flag bits to indicate detail of wing issues</description>
-      <entry value="1" name="WING_LEFT_NOT_CONNECTED"/>
-      <entry value="2" name="WING_RIGHT_NOT_CONNECTED"/>
+      <entry value="1" name="WINGS_LEFT_NOT_CONNECTED"/>
+      <entry value="2" name="WINGS_RIGHT_NOT_CONNECTED"/>
     </enum>
 
     <enum name="TRACKING_DETAIL">
@@ -380,7 +379,7 @@
       <field type="uint16_t" name="trueAirspeed"> Enumerated type for flight stage</field>
       <field type="uint16_t" name="trueTrimSpeed"> Current waypoint type</field>
       <field type="uint16_t" name="eas2tas"> </field>
-
     </message>
+
   </messages>
 </mavlink>
