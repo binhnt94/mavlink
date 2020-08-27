@@ -286,7 +286,7 @@
       <entry value="524288" name="EKF_HEALTH"/><!-- 20 -->
       <entry value="1048576" name="WINGS"/><!-- 21 -->
       <entry value="2097152" name="TRACKING"/><!-- 22 -->
-      <entry value="4194304" name="PRECISION_LANDING"/><!-- 23 -->
+      <entry value="4194304" name="PRECISION_LANDING_FLAG"/><!-- 23 -->
     </enum>
 
   </enums>
