@@ -262,6 +262,14 @@
       <entry value="12" name="STATUS_OTHER"/>
     </enum>
 
+    <enum name="SWOOP_NAVIGATION_STATE">
+      <description>Enumerated type for flight stage</description>
+      <entry value="0" name="STRAIT"/>  <!-- 0 -->
+      <entry value="1" name="TURN"/> <!-- 5 -->
+      <entry value="2" name="ORBIT"/>  <!-- 0 -->
+    </enum>
+
+
     <enum name="SWOOP_INFLIGHT_FLAGS">
       <description>Flag bits to indicate inflight issues</description>
       <entry value="1" name="HOVER_ASSIST"/><!-- 1 -->
@@ -363,6 +371,7 @@
       <field type="uint16_t" name="waypointJumper"> waypointJumpCountIterator</field>
       <field type="uint8_t" name="turnAroundOK"> Are we in a position to turn around and stay in the contingency volume </field>
       <field type="uint8_t" name="forwardDivertOK"> Are we in a position to make a turn and stay in the contingency volume </field>
+      <field type="uint8_t" name="navigationState" enum = "SWOOP_NAVIGATION_STATE"> Navigation Controller statre </field>
     </message>
 
     <message id="6905" name="SWOOP_ENERGY">
