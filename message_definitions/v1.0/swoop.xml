@@ -354,10 +354,15 @@
     <message id="6904" name="SWOOP_STATUS">
       <description>Periodic flight status Flag Packet</description>
       <field type="uint8_t" name="flightStatus" enum="SWOOP_STATUS_TYPE">Enumerated type for flight stage</field>
-      <field type="uint16_t" name="waypointType"> Current waypoint type</field>
-      <field type="uint16_t" name="nextWaypointType"> Current waypoint type</field>
+      <field type="uint16_t" name="previousWaypointType"> Previous waypoint type</field>
+      <field type="uint16_t" name="currentWaypointType"> Current waypoint type</field>
+      <field type="uint16_t" name="nextWaypointType"> next waypoint type</field>
+      <field type="uint16_t" name="previousNavWaypointIndex"> Previous waypoint index</field>
+      <field type="uint16_t" name="currentNavWaypointIndex"> Current waypoint index</field>
+      <field type="uint16_t" name="nextNavWaypointIndex"> next waypoint index</field>
       <field type="uint16_t" name="waypointJumper"> waypointJumpCountIterator</field>
-      <field type="uint16_t" name="nextWaypoint"> The next waypoint number </field>
+      <field type="uint8_t" name="turnAroundOK"> Are we in a position to turn around and stay in the contingency volume </field>
+      <field type="uint8_t" name="forwardDivertOK"> Are we in a position to make a turn and stay in the contingency volume </field>
     </message>
 
     <message id="6905" name="SWOOP_ENERGY">
