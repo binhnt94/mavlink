@@ -266,7 +266,7 @@
       <description>Enumerated type for flight stage</description>
       <entry value="0" name="STRAIT"/>  <!-- 0 -->
       <entry value="1" name="TURN"/> <!-- 5 -->
-      <entry value="2" name="ORBIT"/>  <!-- 0 -->
+      <entry value="2" name="ORBIT_STATE"/>  <!-- 0 -->
     </enum>
 
 
