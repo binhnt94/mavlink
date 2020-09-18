@@ -245,6 +245,12 @@
       <entry value="4" name="PRECISION_LANDING_NEXT_WAYPOINT"/>
     </enum>
 
+    <enum name="WINCH_DETAIL">
+      <description>Flag bits to indicate detail of winch issues</description>
+      <entry value="1" name="WINCH_TIMEOUT"/>
+      <entry value="2" name="WINCH_FAILURE"/>
+    </enum>
+
     <enum name="SWOOP_STATUS_TYPE">
       <description>Enumerated type for flight stage</description>
       <entry value="0" name="DISSARMED_ON_GROUND"/>  <!-- 0 -->
@@ -260,6 +266,7 @@
       <entry value="10" name="PARACHUTE_DEPLOYED"/> <!-- 5 -->
       <entry value="11" name="ABORTING_TAKEOFF"/> <!-- 5 -->
       <entry value="12" name="STATUS_OTHER"/>
+      <entry value="13" name="WINCHING"/>
     </enum>
 
     <enum name="SWOOP_NAVIGATION_STATE">
@@ -295,6 +302,7 @@
       <entry value="1048576" name="WINGS"/><!-- 21 -->
       <entry value="2097152" name="TRACKING"/><!-- 22 -->
       <entry value="4194304" name="PRECISION_LANDING_FLAG"/><!-- 23 -->
+      <entry value="8388608" name="WINCH_FLAG"/>
     </enum>
 
   </enums>
@@ -357,6 +365,8 @@
       <field type="uint8_t" name="trackingDetail" enum="TRACKING_DETAIL"> Flag bits to indicate detail of tracking issues</field>
       <field type="uint8_t" name="precisionLandingIntensity" enum="SWOOP_FLAG_INTENSITY"> Flag bits to indicate intensity of precision landing issues</field>
       <field type="uint8_t" name="precisionLandingDetail" enum="PRECISION_LANDING_DETAIL"> Flag bits to indicate detail of precision landing issues</field>
+      <field type="uint8_t" name="winchIntensity" enum="SWOOP_FLAG_INTENSITY"> Flag bits to indicate intensity of winch issues</field>
+      <field type="uint8_t" name="winchDetail" enum="WINCH_DETAIL"> Flag bits to indicate detail of winch issues</field>
     </message>
 
     <message id="6904" name="SWOOP_STATUS">
