@@ -276,7 +276,6 @@
       <entry value="2" name="ORBIT_STATE"/>  <!-- 0 -->
     </enum>
 
-
     <enum name="SWOOP_INFLIGHT_FLAGS">
       <description>Flag bits to indicate inflight issues</description>
       <entry value="1" name="HOVER_ASSIST"/><!-- 1 -->
@@ -382,6 +381,7 @@
       <field type="uint8_t" name="turnAroundOK"> Are we in a position to turn around and stay in the contingency volume </field>
       <field type="uint8_t" name="forwardDivertOK"> Are we in a position to make a turn and stay in the contingency volume </field>
       <field type="uint8_t" name="navigationState" enum = "SWOOP_NAVIGATION_STATE"> Navigation Controller statre </field>
+      <field type="uint8_t" name="landingState"> Landing State (position_control_state in quadplane.h) </field>
     </message>
 
     <message id="6905" name="SWOOP_ENERGY">
