@@ -249,6 +249,7 @@
       <description>Flag bits to indicate detail of winch issues</description>
       <entry value="1" name="WINCH_TIMEOUT"/>
       <entry value="2" name="WINCH_FAILURE"/>
+      <entry value="3" name="WINCH_LIDAR_FAILED"/>
     </enum>
 
     <enum name="SWOOP_STATUS_TYPE">
@@ -301,7 +302,7 @@
       <entry value="1048576" name="WINGS"/><!-- 21 -->
       <entry value="2097152" name="TRACKING"/><!-- 22 -->
       <entry value="4194304" name="PRECISION_LANDING_FLAG"/><!-- 23 -->
-      <entry value="8388608" name="WINCH_FLAG"/>
+      <entry value="8388608" name="WINCH_FLAG"/> <!-- 24 -->
     </enum>
 
   </enums>
