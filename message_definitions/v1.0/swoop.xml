@@ -238,13 +238,6 @@
       <entry value="64" name="TRACKING_CONTINGENCY_HIGH"/>
     </enum>
 
-    <enum name="PRECISION_LANDING_DETAIL">
-      <description>Flag bits to indicate detail of precision landing issues</description>
-      <entry value="1" name="PRECISION_LANDING_TARGET_NOT_FOUND"/>
-      <entry value="2" name="PRECISION_LANDING_USING_GPS"/>
-      <entry value="4" name="PRECISION_LANDING_NEXT_WAYPOINT"/>
-    </enum>
-
     <enum name="WINCH_DETAIL">
       <description>Flag bits to indicate detail of winch issues</description>
       <entry value="1" name="WINCH_TIMEOUT"/>
@@ -301,8 +294,7 @@
       <entry value="524288" name="EKF_HEALTH"/><!-- 20 -->
       <entry value="1048576" name="WINGS"/><!-- 21 -->
       <entry value="2097152" name="TRACKING"/><!-- 22 -->
-      <entry value="4194304" name="PRECISION_LANDING_FLAG"/><!-- 23 -->
-      <entry value="8388608" name="WINCH_FLAG"/> <!-- 24 -->
+      <entry value="4194304" name="WINCH_FLAG"/><!-- 23 -->
     </enum>
 
   </enums>
@@ -363,8 +355,6 @@
       <field type="uint8_t" name="wingsDetail" enum="WINGS_DETAIL"> Flag bits to indicate detail of wing issues</field>
       <field type="uint8_t" name="trackingIntensity" enum="SWOOP_FLAG_INTENSITY"> Flag bits to indicate intensity of tracking issues</field>
       <field type="uint8_t" name="trackingDetail" enum="TRACKING_DETAIL"> Flag bits to indicate detail of tracking issues</field>
-      <field type="uint8_t" name="precisionLandingIntensity" enum="SWOOP_FLAG_INTENSITY"> Flag bits to indicate intensity of precision landing issues</field>
-      <field type="uint8_t" name="precisionLandingDetail" enum="PRECISION_LANDING_DETAIL"> Flag bits to indicate detail of precision landing issues</field>
       <field type="uint8_t" name="winchIntensity" enum="SWOOP_FLAG_INTENSITY"> Flag bits to indicate intensity of winch issues</field>
       <field type="uint8_t" name="winchDetail" enum="WINCH_DETAIL"> Flag bits to indicate detail of winch issues</field>
     </message>
