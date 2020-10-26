@@ -295,6 +295,7 @@
       <entry value="1048576" name="WINGS"/><!-- 21 -->
       <entry value="2097152" name="TRACKING"/><!-- 22 -->
       <entry value="4194304" name="WINCH_FLAG"/><!-- 23 -->
+      <entry value="8388608" name="TAKEOFF_ABORTED"/><!-- 24 -->
     </enum>
 
   </enums>
@@ -357,6 +358,8 @@
       <field type="uint8_t" name="trackingDetail" enum="TRACKING_DETAIL"> Flag bits to indicate detail of tracking issues</field>
       <field type="uint8_t" name="winchIntensity" enum="SWOOP_FLAG_INTENSITY"> Flag bits to indicate intensity of winch issues</field>
       <field type="uint8_t" name="winchDetail" enum="WINCH_DETAIL"> Flag bits to indicate detail of winch issues</field>
+      <field type="uint8_t" name="takeoffAbortedIntensity" enum="SWOOP_FLAG_INTENSITY"> Flag bits to indicate intensity of aborted takeoff</field>
+      <field type="uint8_t" name="takeoffAbortedDetail" enum="SWOOP_NO_DETAIL"> No details required for takeoff aborted flag</field>
     </message>
 
     <message id="6904" name="SWOOP_STATUS">
