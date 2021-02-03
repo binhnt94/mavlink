@@ -263,13 +263,13 @@
       <entry value="13" name="WINCHING"/>
     </enum>
 
+
     <enum name="SWOOP_NAVIGATION_STATE">
       <description>Enumerated type for flight stage</description>
       <entry value="0" name="STRAIT"/>  <!-- 0 -->
       <entry value="1" name="TURN"/> <!-- 5 -->
       <entry value="2" name="ORBIT_STATE"/>  <!-- 0 -->
     </enum>
-
     <enum name="SWOOP_INFLIGHT_FLAGS">
       <description>Flag bits to indicate inflight issues</description>
       <entry value="1" name="HOVER_ASSIST"/><!-- 1 -->
@@ -296,6 +296,21 @@
       <entry value="2097152" name="TRACKING"/><!-- 22 -->
       <entry value="4194304" name="WINCH_FLAG"/><!-- 23 -->
       <entry value="8388608" name="TAKEOFF_ABORTED"/><!-- 24 -->
+    </enum>
+
+    <enum name="SWOOP_DAA_THREAT_LEVEL">
+      <description>Detect and avoid threat level</description>
+      <entry value="0" name="DAA_NONE"/>
+      <entry value="1" name="DAA_LOWC"/>
+      <entry value="2" name="DAA_NMAC"/>
+    </enum>
+
+    <enum name="SWOOP_DAA_SOURCE">
+      <description>Source of the detection</description>
+      <entry value="0" name="DAA_UNKNOWN"/>
+      <entry value="1" name="DAA_ADSB"/>
+      <entry value="2" name="DAA_RADAR"/>
+      <entry value="3" name="DAA_IRIS"/>
     </enum>
 
   </enums>
@@ -397,6 +412,15 @@
       <field type="uint16_t" name="trueAirspeed"> Enumerated type for flight stage</field>
       <field type="uint16_t" name="trueTrimSpeed"> Current waypoint type</field>
       <field type="uint16_t" name="eas2tas"> </field>
+    </message>
+
+    <message id="6907" name="SWOOP_DAA">
+      <description>Detect and avoid information</description>
+      <field type="uint8_t" name="threatLevel" enum="SWOOP_DAA_THREAT_LEVEL"></field>
+      <field type="uint32_t" name="ICAO">Vehicle address (24 bit)</field>
+      <field type="uint8_t" name="detectionSource" enum="SWOOP_DAA_SOURCE"> </field>
+      <field type="uint8_t" name="emitterType" enum="ADSB_EMITTER_TYPE">Transmitting vehicle type. See ADSB_EMITTER_TYPE enum</field>
+      <field type="char[9]" name="callsign">Vehicle identifier</field>
     </message>
 
   </messages>
