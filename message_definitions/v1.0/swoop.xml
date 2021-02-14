@@ -394,9 +394,13 @@
 
     <message id="6906" name="SWOOP_AIRSPEED">
       <description>Periodic flight status Flag Packet</description>
-      <field type="uint16_t" name="trueAirspeed"> Enumerated type for flight stage</field>
-      <field type="uint16_t" name="trueTrimSpeed"> Current waypoint type</field>
+      <field type="uint16_t" name="trueAirspeed"> True Airspeed</field>
+      <field type="uint16_t" name="trueTrimSpeed"> True Trim Speed</field>
       <field type="uint16_t" name="eas2tas"> </field>
+      <field type="uint16_t" name="Sensor1IAS"> </field>
+      <field type="uint16_t" name="Sensor2IAS"> </field>
+      <field type="uint16_t" name="Sensor3IAS"> </field>
+      <field type="uint16_t" name="Sensor4IAS"> </field>
     </message>
 
   </messages>
