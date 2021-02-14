@@ -98,6 +98,7 @@
       <entry value="1" name="HOVER_ASSIST_REASON_ALT"/>
       <entry value="2" name="HOVER_ASSIST_REASON_SPEED"/>
       <entry value="4" name="HOVER_ASSIST_REASON_ATTITUDE"/>
+      <entry value="8" name="HOVER_ASSIST_COUNT_HIGH"/>
     </enum>
 
     <enum name="SWOOP_EMERGENCY_LAND_DETAIL">
