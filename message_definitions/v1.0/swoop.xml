@@ -57,6 +57,7 @@
       <entry value="67108864" name="BAD_PARAMS"/>  <!-- 26 -->
       <entry value="134217728" name="LEFT_WING_NOT_CONNECTED"/>  <!-- 27 -->
       <entry value="268435456" name="RIGHT_WING_NOT_CONNECTED"/>  <!-- 28 -->
+      <entry value="536870912" name="WINGTIP_OVERTEMP"/>  <!-- 29 -->
     </enum>
 
     <enum name="SWOOP_ARMING_CHECK_COMMON">
@@ -188,6 +189,7 @@
       <entry value="8" name="AIRSPEED_SENSOR_2"/> <!-- 3 -->
       <entry value="16" name="AIRSPEED_SENSOR_3"/> <!-- 4 -->
       <entry value="32" name="AIRSPEED_SENSOR_4"/> <!-- 5 -->
+      <entry value="64" name="AMBIENT_TEMP"/> <!-- 6 -->
     </enum>
 
     <enum name="SERVO_DETAIL">
