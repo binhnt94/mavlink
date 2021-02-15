@@ -386,7 +386,7 @@
       <field type="uint8_t" name="ForwardWHrLookupRemaining" units="%"> Forward battery percentage left </field>
       <field type="uint16_t" name="ForwardReserve" units="s"> Estimated seconds of forward flight remaining in reserve </field>
       <field type="uint16_t" name="ForwardBatteryVoltage" units="mV">Battery voltage, UINT16_MAX: Voltage not sent by autopilot</field>
-      <field type="int16_t" name="ForwardrBatteryCurrent" units="cA">Battery current, -1: Current not sent by autopilot</field>
+      <field type="int16_t" name="ForwardBatteryCurrent" units="cA">Battery current, -1: Current not sent by autopilot</field>
       <field type="uint16_t" name="HoverEndurance" units="s"> Hover battery endurance remaining </field>
       <field type="uint8_t" name="HoverHealth"> Hover battery healthy </field>
       <field type="uint8_t" name="HoverWHrPortionRemaining" units="%"> Forward battery percentage left </field>
