@@ -401,13 +401,18 @@
       <field type="uint16_t" name="ForwardEndurance" units="s"> Forward battery endurance remaining </field>
       <field type="uint8_t" name="ForwardHealth" > Forward battery healthy </field>
       <field type="uint8_t" name="ForwardWHrPortionRemaining" units="%"> Forward battery percentage left </field>
+      <field type="uint8_t" name="ForwardWHrLookupRemaining" units="%"> Forward battery percentage left </field>
+      <field type="uint16_t" name="ForwardReserve" units="s"> Estimated seconds of forward flight remaining in reserve </field>
+      <field type="uint16_t" name="ForwardBatteryVoltage" units="mV">Battery voltage, UINT16_MAX: Voltage not sent by autopilot</field>
+      <field type="int16_t" name="ForwardrBatteryCurrent" units="cA">Battery current, -1: Current not sent by autopilot</field>
       <field type="uint16_t" name="HoverEndurance" units="s"> Hover battery endurance remaining </field>
       <field type="uint8_t" name="HoverHealth"> Hover battery healthy </field>
       <field type="uint8_t" name="HoverWHrPortionRemaining" units="%"> Forward battery percentage left </field>
-      <field type="uint16_t" name="ForwardTimeToNextLanding" units="s"> Estimated seconds of forward flight required to get to the next landing </field>
-      <field type="uint16_t" name="ForwardTimeToEndOfMission" units="s"> Estimated seconds of forward flight required to get to the end of the mission </field>
-      <field type="uint16_t" name="HoverTimeToNextLanding" units="s"> Estimated seconds of hover flight required to get to the next landing </field>
-      <field type="uint16_t" name="HoverTimeToEndOfMission" units="s"> Estimated seconds of hover flight required to get to the end of the mission </field>
+      <field type="uint8_t" name="HoverWHrLookupRemaining" units="%"> Forward battery percentage left </field>
+      <field type="uint16_t" name="HoverReserve" units="s"> Estimated seconds of hover flight remaining in reserve </field>
+      <field type="uint16_t" name="HoverBatteryVoltage" units="mV">Battery voltage, UINT16_MAX: Voltage not sent by autopilot</field>
+      <field type="int16_t" name="HoverBatteryCurrent" units="cA">Battery current, -1: Current not sent by autopilot</field>
+
     </message>
 
     <message id="6906" name="SWOOP_AIRSPEED">
