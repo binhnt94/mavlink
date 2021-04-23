@@ -264,6 +264,7 @@
       <entry value="11" name="ABORTING_TAKEOFF"/> <!-- 5 -->
       <entry value="12" name="STATUS_OTHER"/>
       <entry value="13" name="WINCHING"/>
+      <entry value="14" name="DROPPING"/>
     </enum>
 
 
