@@ -58,6 +58,7 @@
       <entry value="134217728" name="LEFT_WING_NOT_CONNECTED"/>  <!-- 27 -->
       <entry value="268435456" name="RIGHT_WING_NOT_CONNECTED"/>  <!-- 28 -->
       <entry value="536870912" name="WINGTIP_OVERTEMP"/>  <!-- 29 -->
+      <entry value="1073741824" name="ROLE_EQUIPMENT_NOT_READY"/>  <!-- 30 -->
     </enum>
 
     <enum name="SWOOP_ARMING_CHECK_COMMON">
