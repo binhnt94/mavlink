@@ -107,6 +107,7 @@
       <description>Flag bits to indicate the reason for the hover assist status</description>
       <entry value="1" name="HOVER_ASSIST_LONG_TIMEOUT"/>
       <entry value="2" name="HOVER_ASSIST_COUNTER_TIMEOUT"/>
+      <entry value="4" name="HOVER_ASSIST_BATTERY_DEPLETED"/>
     </enum>
 
     <enum name="SWOOP_GPS_HEALTH_DETAIL">
