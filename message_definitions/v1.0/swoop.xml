@@ -168,8 +168,9 @@
 
      <enum name="ALTITTUDE_DETAIL">
       <description>Flag bits to indicate altitude issues</description>
-      <entry value="1" name="ALTITUDE_HIGH"/> <!-- 3 -->
-      <entry value="2" name="ALTITUDE_LOW"/> <!-- 7 -->
+      <entry value="1" name="ALTITUDE_HIGH"/> <!-- 0 -->
+      <entry value="2" name="ALTITUDE_LOW"/> <!-- 1 -->
+      <entry value="4" name="ALTITUDE_MISSION_MISMATCH"/> <!-- 2 -->
     </enum>
 
     <enum name="LANDING_DETAIL">
