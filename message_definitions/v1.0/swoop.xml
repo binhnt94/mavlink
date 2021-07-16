@@ -132,7 +132,7 @@
       <entry value="2" name="HOVER_MOTOR_2_FAILURE"/> <!-- 2 -->
       <entry value="4" name="HOVER_MOTOR_3_FAILURE"/> <!-- 3 -->
       <entry value="8" name="HOVER_MOTOR_4_FAILURE"/> <!-- 4 -->
-      <entry value="16" name="HOVER_MOTOR_OSCILLATIONS"/> <!-- 5 -->
+      <entry value="16" name="HOVER_MOTOR_OVERTEMP"/> <!-- 5 -->
       <entry value="32" name="HOVER_MOTOR_OFFSETS"/> <!-- 6 -->
       <entry value="64" name="HOVER_MOTOR_OUTPUT_SATURATION"/> <!-- 7 -->
       <entry value="128" name="HOVER_ESC_PACKET_ERROR"/> <!-- 8 -->
