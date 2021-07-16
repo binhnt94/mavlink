@@ -154,14 +154,16 @@
 
     <enum name="FORWARD_BATTERY_DETAIL">
       <description>Flag bits to indicate battery issues</description>
-      <entry value="1" name="FORWARD_ENDURANCE"/>  <!-- 1 -->
-      <entry value="2" name="FORWARD_BATTERY_FAILURE_DETECTED"/> <!-- 4 -->
+      <entry value="1" name="FORWARD_ENDURANCE"/>  <!-- 0 -->
+      <entry value="2" name="FORWARD_BATTERY_FAILURE_DETECTED"/> <!-- 1 -->
+      <entry value="4" name="FORWARD_BATTERY_LOW_VOLTAGE"/> <!-- 2 -->
     </enum>
 
     <enum name="HOVER_BATTERY_DETAIL">
       <description>Flag bits to indicate battery issues</description>
-      <entry value="1" name="HOVER_ENDURANCE"/> <!-- 3 -->
-      <entry value="2" name="HOVER_BATTERY_FAILURE_DETECTED"/> <!-- 7 -->
+      <entry value="1" name="HOVER_ENDURANCE"/> <!-- 0 -->
+      <entry value="2" name="HOVER_BATTERY_FAILURE_DETECTED"/> <!-- 1 -->
+      <entry value="4" name="HOVER_BATTERY_LOW_VOLTAGE"/> <!-- 2 -->
     </enum>
 
      <enum name="ALTITTUDE_DETAIL">
