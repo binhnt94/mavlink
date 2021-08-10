@@ -133,10 +133,10 @@
       <entry value="2" name="HOVER_MOTOR_2_FAILURE"/> <!-- 2 -->
       <entry value="4" name="HOVER_MOTOR_3_FAILURE"/> <!-- 3 -->
       <entry value="8" name="HOVER_MOTOR_4_FAILURE"/> <!-- 4 -->
-      <entry value="16" name="HOVER_MOTOR_OSCILLATIONS"/> <!-- 5 -->
+      <entry value="16" name="HOVER_MOTOR_OVERTEMP"/> <!-- 5 -->
       <entry value="32" name="HOVER_MOTOR_OFFSETS"/> <!-- 6 -->
       <entry value="64" name="HOVER_MOTOR_OUTPUT_SATURATION"/> <!-- 7 -->
-      <entry value="2048" name="HOVER_MOTOR_HIGH_POWER"/> <!-- 8 -->
+      <entry value="128" name="HOVER_ESC_PACKET_ERROR"/> <!-- 8 -->
     </enum>
 
     <enum name="SWOOP_FORWARD_MOTOR_FAIL_DETAIL">
@@ -155,20 +155,23 @@
 
     <enum name="FORWARD_BATTERY_DETAIL">
       <description>Flag bits to indicate battery issues</description>
-      <entry value="1" name="FORWARD_ENDURANCE"/>  <!-- 1 -->
-      <entry value="2" name="FORWARD_BATTERY_FAILURE_DETECTED"/> <!-- 4 -->
+      <entry value="1" name="FORWARD_ENDURANCE"/>  <!-- 0 -->
+      <entry value="2" name="FORWARD_BATTERY_FAILURE_DETECTED"/> <!-- 1 -->
+      <entry value="4" name="FORWARD_BATTERY_LOW_VOLTAGE"/> <!-- 2 -->
     </enum>
 
     <enum name="HOVER_BATTERY_DETAIL">
       <description>Flag bits to indicate battery issues</description>
-      <entry value="1" name="HOVER_ENDURANCE"/> <!-- 3 -->
-      <entry value="2" name="HOVER_BATTERY_FAILURE_DETECTED"/> <!-- 7 -->
+      <entry value="1" name="HOVER_ENDURANCE"/> <!-- 0 -->
+      <entry value="2" name="HOVER_BATTERY_FAILURE_DETECTED"/> <!-- 1 -->
+      <entry value="4" name="HOVER_BATTERY_LOW_VOLTAGE"/> <!-- 2 -->
     </enum>
 
      <enum name="ALTITTUDE_DETAIL">
       <description>Flag bits to indicate altitude issues</description>
-      <entry value="1" name="ALTITUDE_HIGH"/> <!-- 3 -->
-      <entry value="2" name="ALTITUDE_LOW"/> <!-- 7 -->
+      <entry value="1" name="ALTITUDE_HIGH"/> <!-- 0 -->
+      <entry value="2" name="ALTITUDE_LOW"/> <!-- 1 -->
+      <entry value="4" name="ALTITUDE_MISSION_MISMATCH"/> <!-- 2 -->
     </enum>
 
     <enum name="LANDING_DETAIL">
