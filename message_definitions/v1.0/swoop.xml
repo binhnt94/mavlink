@@ -16,7 +16,7 @@
       <entry value="0" name="NO_ISSUES"/>  <!-- 0 -->
       <entry value="1" name="FAILED_PROCEED_WAYPOINT"/>
       <entry value="2" name="FAILED_GPS_LAND"/>
-      <entry value="3" name="FAILED_CONTINGENCY"/>
+      <entry value="4" name="FAILED_CONTINGENCY"/>
     </enum>
 
     <enum name="SWOOP_BATTERY_HEALTH">
