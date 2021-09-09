@@ -1,0 +1,126 @@
+workflow:
+  # build branches and merge requests but not both at same time
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
+      when: never
+    - if: '$CI_COMMIT_BRANCH'
+
+
+stages:
+  - setup
+  - build
+  - test
+  - release
+
+# edit major and minor version numbers here
+# when the minor number changes, the patch number will be reset to 0
+variables:
+  MAJOR: 3
+  MINOR: 8
+
+# setup version numbers and variables
+setup:
+  tags:
+    - quick
+
+  stage: setup
+
+  # use this cache to record the last offset used for patch number
+  cache:
+    key: version_cache_mavlink
+    paths:
+      - minor.txt
+      - id_offset.txt
+
+  script:
+    # compare minor version to cached one, reset patch number if different
+    - >
+      if [ -f minor.txt ] && [ $(cat minor.txt) = "$MINOR" ]; then
+        echo "previous minor value found and unchanged, use current offset"
+        OFFSET=$(cat id_offset.txt)
+      else
+        echo "minor value changed, resetting patch number"
+        OFFSET=$CI_PIPELINE_IID
+        echo $OFFSET > id_offset.txt
+        echo $MINOR > minor.txt
+      fi
+    - PATCH=$(($CI_PIPELINE_IID-$OFFSET))
+    - BUILDNAME=mavlink-$CI_COMMIT_SHORT_SHA-$MAJOR-$MINOR-$PATCH
+    - BINARY=swoop_pymavlink-$MAJOR.$MINOR.$PATCH-cp38-cp38-linux_x86_64.whl
+    - echo $BUILDNAME
+    # save some variables to variable.env to use in following jobs
+    - echo "PATCH=$PATCH" >> variables.env
+    - echo "BUILDNAME=$BUILDNAME" >> variables.env
+    - echo "VERSION=$MAJOR.$MINOR.$PATCH" >> variables.env
+    - echo "TAG=v$MAJOR.$MINOR.$PATCH" >> variables.env
+    - echo "BINARY=$BINARY" >> variables.env
+    # generate metadata file for use by downstream systems (e.g. maintenance screen firmware upgrade)
+    - >
+      JSON_STRING=$( jq -n
+      --arg br  "$CI_COMMIT_REF_SLUG"
+      --arg sha "$CI_COMMIT_SHORT_SHA"
+      --arg trg "$CI_PIPELINE_SOURCE"
+      --arg id  "$CI_PIPELINE_ID"
+      --arg iid "$CI_PIPELINE_IID"
+      --arg tme "$CI_PIPELINE_CREATED_AT"
+      --arg usr "$GITLAB_USER_NAME"
+      --arg maj "$MAJOR"
+      --arg min "$MINOR"
+      --arg pat "$PATCH"
+      --arg bin "$BINARY"
+      '{branch: $br, sha: $sha, iid: $iid, id: $id, time: $tme, user: $usr, trig: $trg, major: $maj, minor: $min, patch: $pat, binary: $bin}' )
+    - echo $JSON_STRING
+    - echo $JSON_STRING > ci_metadata.json
+
+  artifacts:
+    paths:
+      - ci_metadata.json
+    reports:
+      dotenv: variables.env
+
+build:
+  stage: build
+  image: quay.io/pypa/manylinux1_x86_64
+  tags:
+    - quick
+
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+
+  script:
+    - export MDEF=$(pwd)/message_definitions
+    - export VERSION=$MAJOR.$MINOR.$PATCH
+    - cd pymavlink
+    - /opt/python/cp38-cp38/bin/pip install -U future lxml
+    # Compile wheels
+    - /opt/python/cp38-cp38/bin/pip wheel --wheel-dir=wheels/ .
+
+  artifacts:
+    name: "pymavlink_$VERSION_$CI_COMMIT_SHORT_SHA"
+    paths:
+      - "pymavlink/wheels/*"
+
+# push the binaries and metadata to s3 bucket and create a tag for cross referencing
+release:
+  stage: release
+  tags:
+    - quick
+
+  variables:
+    BASE_FILE_NAME: s3://device-management.tools.swoop.aero/firmware/mavlink/$CI_COMMIT_BRANCH
+
+  script:
+    - pip install s3pypi==1.0.0rc3
+    - s3pypi pymavlink/wheels/* --bucket device-management.tools.swoop.aero --prefix firmware/pypi
+    #- aws s3 cp pymavlink/$BINARY $BASE_FILE_NAME/$BINARY
+    - aws s3 cp ci_metadata.json $BASE_FILE_NAME/$BUILDNAME.config
+    - curl --location --output /usr/local/bin/release-cli "https://release-cli-downloads.s3.amazonaws.com/latest/release-cli-linux-amd64"
+    - chmod +x /usr/local/bin/release-cli
+    - release-cli -v
+    - echo 'running release_job for $TAG'
+  release:
+    name: '$CI_COMMIT_REF_SLUG $TAG'
+    tag_name: '$TAG'
+    ref: '$CI_COMMIT_SHA'
+    description: '$CI_COMMIT_REF_SLUG $TAG'
