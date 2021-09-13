@@ -17,7 +17,7 @@ stages:
 # when the minor number changes, the patch number will be reset to 0
 variables:
   MAJOR: 3
-  MINOR: 7
+  MINOR: 8
 
 # setup version numbers and variables
 setup:
@@ -120,7 +120,7 @@ release:
     - release-cli -v
     - echo 'running release_job for $TAG'
   release:
-    name: 'Release $TAG'
+    name: '$CI_COMMIT_REF_SLUG $TAG'
     tag_name: '$TAG'
     ref: '$CI_COMMIT_SHA'
-    description: 'Release $TAG'
+    description: '$CI_COMMIT_REF_SLUG $TAG'
