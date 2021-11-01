@@ -60,6 +60,7 @@
       <entry value="268435456" name="RIGHT_WING_NOT_CONNECTED"/>  <!-- 28 -->
       <entry value="536870912" name="WINGTIP_OVERTEMP"/>  <!-- 29 -->
       <entry value="1073741824" name="ROLE_EQUIPMENT_NOT_READY"/>  <!-- 30 -->
+      <entry value="2147483648" name="HIGH_IMPACT_DETECTED"/>  <!-- 31 -->
     </enum>
 
     <enum name="SWOOP_ARMING_CHECK_COMMON">
