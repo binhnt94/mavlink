@@ -108,6 +108,7 @@
       <description>Flag bits to indicate the reason for the hover assist status</description>
       <entry value="1" name="HOVER_ASSIST_LONG_TIMEOUT"/>
       <entry value="2" name="HOVER_ASSIST_COUNTER_TIMEOUT"/>
+      <entry value="4" name="HOVER_ASSIST_BATTERY_DEPLETED"/>
     </enum>
 
     <enum name="SWOOP_GPS_HEALTH_DETAIL">
@@ -141,10 +142,11 @@
 
     <enum name="SWOOP_FORWARD_MOTOR_FAIL_DETAIL">
       <description>Flag bits to indicate motor issues</description>
-      <entry value="1" name="FORWARD_MOTOR_1_FAILURE"/> <!-- 10 -->
-      <entry value="2" name="FORWARD_MOTOR_2_FAILURE"/> <!-- 11 -->
-      <entry value="4" name="FORWARD_MOTOR_OUTPUT_SATURATION"/> <!-- 11 -->
-      <entry value="8" name="FORWARD_MOTOR_HIGH_POWER"/> <!-- 11 -->
+      <entry value="1" name="FORWARD_MOTOR_1_FAILURE"/> <!-- 1 -->
+      <entry value="2" name="FORWARD_MOTOR_2_FAILURE"/> <!-- 2 -->
+      <entry value="4" name="FORWARD_MOTOR_OUTPUT_SATURATION"/> <!-- 4 -->
+      <entry value="8" name="FORWARD_MOTOR_HIGH_POWER"/> <!-- 8 -->
+      <entry value="16" name="FORWARD_MOTOR_TEMP_DIFF"/> <!-- 16 -->
     </enum>
 
     <enum name="LIDAR_DETAIL">
