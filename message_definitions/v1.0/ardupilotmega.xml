@@ -1599,7 +1599,7 @@
     </message>
     <message id="11030" name="ESC_TELEMETRY_1_TO_4">
       <description>ESC Telemetry Data for ESCs 1 to 4, matching data sent by BLHeli ESCs.</description>
-      <field type="uint8_t[4]" name="temperature" units="degC">Temperature.</field>
+      <field type="int16_t[4]" name="temperature" units="degC">Temperature.</field>
       <field type="uint16_t[4]" name="voltage" units="cV">Voltage.</field>
       <field type="uint16_t[4]" name="current" units="cA">Current.</field>
       <field type="uint16_t[4]" name="totalcurrent" units="mAh">Total current.</field>
