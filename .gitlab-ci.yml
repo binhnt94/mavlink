@@ -28,7 +28,7 @@ setup:
 
   # use this cache to record the last offset used for patch number
   cache:
-    key: version_cache_mavlink
+    key: version_cache_mavlink_$MAJOR_$MINOR
     paths:
       - minor.txt
       - id_offset.txt
@@ -36,16 +36,16 @@ setup:
   script:
     # compare minor version to cached one, reset patch number if different
     - >
-      if [ -f minor.txt ] && [ $(cat minor.txt) = "$MINOR" ]; then
+      if [ -f id_offset.txt ]; then
         echo "previous minor value found and unchanged, use current offset"
         OFFSET=$(cat id_offset.txt)
       else
-        echo "minor value changed, resetting patch number"
+        echo "new cache due to major/minor change, resetting patch number offset"
         OFFSET=$CI_PIPELINE_IID
         echo $OFFSET > id_offset.txt
-        echo $MINOR > minor.txt
       fi
     - PATCH=$(($CI_PIPELINE_IID-$OFFSET))
+    - PATCH=$(($PATCH+10))
     - BUILDNAME=mavlink-$CI_COMMIT_SHORT_SHA-$MAJOR-$MINOR-$PATCH
     - BINARY=swoop_pymavlink-$MAJOR.$MINOR.$PATCH-cp38-cp38-linux_x86_64.whl
     - echo $BUILDNAME
