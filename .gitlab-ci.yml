@@ -45,7 +45,7 @@ setup:
         echo $OFFSET > id_offset.txt
       fi
     - PATCH=$(($CI_PIPELINE_IID-$OFFSET))
-    - PATCH=$(($PATCH+10))
+    - PATCH=$(($PATCH+13))
     - BUILDNAME=mavlink-$CI_COMMIT_SHORT_SHA-$MAJOR-$MINOR-$PATCH
     - BINARY=swoop_pymavlink-$MAJOR.$MINOR.$PATCH-cp38-cp38-linux_x86_64.whl
     - echo $BUILDNAME
