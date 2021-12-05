@@ -332,7 +332,7 @@
     <message id="6901" name="SWOOP_ARMING_FLAGS">
       <description>Periodic ARMING status Flag Packet</description>
       <field type="uint8_t" name="armingCheckStatus" enum="SWOOP_ARMING_CHECKS_PASSED">0 if all arming checks have passed, false otherwise</field>
-      <field type="uint32_t" name="armingCheckFlags1" enum="SWOOP_ARMING_CHECK_DETAIL_1">Flag bits to indicate which of the arming checks is failing</field>
+      <field type="uint64_t" name="armingCheckFlags1" enum="SWOOP_ARMING_CHECK_DETAIL_1">Flag bits to indicate which of the arming checks is failing</field>
       <field type="uint16_t" name="armingCheckFlagsCommon" enum="SWOOP_ARMING_CHECK_COMMON">Flag bits to indicate which of the arming checks is failing</field>
     </message>
 
