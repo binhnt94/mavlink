@@ -445,5 +445,21 @@
       <field type="char[9]" name="callsign">Vehicle identifier</field>
     </message>
 
+    <message id="6908" name="SWOOP_UPDATE_WAYPOINTS">
+      <description>Single message to update up to 8 waypoints.</description>
+      <field type="uint8_t" name="id">The ID of the first waypoint in the list</field>
+      <field type="uint8_t" name="size">The number of waypoints to update</field>
+      <field type="uint8_t" name="frame">The reference frame used</field>
+      <field type="uint8_t" name="target_system">The reference frame used</field>
+      <field type="uint8_t" name="target_component">The reference frame used</field>
+      <field type="uint16_t[8]" name="command" enum="MAV_CMD">Command IDs</field>
+      <field type="float[8]" name="param1">Parameter 1</field>
+      <field type="float[8]" name="param2">Parameter 2</field>
+      <field type="float[8]" name="param3">Parameter 3</field>
+      <field type="float[8]" name="param4">Parameter 4</field>
+      <field type="int32_t[8]" name="lat">Latitude (parameter 5)</field>
+      <field type="int32_t[8]" name="lon">Longitude (parameter 6)</field>
+      <field type="float[8]" name="alt">Altitude (parameter 7)</field>
+    </message>
   </messages>
 </mavlink>
