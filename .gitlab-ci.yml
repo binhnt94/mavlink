@@ -8,6 +8,7 @@ workflow:
 
 
 stages:
+  - get_version
   - setup
   - build
   - test
@@ -19,6 +20,26 @@ variables:
   MAJOR: 3
   MINOR: 8
 
+get-versions:
+  stage: get_version
+  tags:
+    - quick
+
+  resource_group: $CI_PROJECT_NAME-patch-number
+
+  variables:
+    FILE: s3://device-management.tools.swoop.aero/firmware/$CI_PROJECT_NAME-patch-numbers.json
+
+  script:
+    - aws s3 cp $FILE patch-numbers.json
+    - PATCH=$(python3 get_patch_number.py -f patch-numbers.json --major $MAJOR --minor $MINOR)
+    - aws s3 cp patch-numbers.json $FILE
+    - echo "PATCH=$PATCH" >> variables.env
+
+  artifacts:
+    reports:
+      dotenv: variables.env
+
 # setup version numbers and variables
 setup:
   tags:
@@ -26,26 +47,7 @@ setup:
 
   stage: setup
 
-  # use this cache to record the last offset used for patch number
-  cache:
-    key: version_cache_mavlink_$MAJOR_$MINOR
-    paths:
-      - minor.txt
-      - id_offset.txt
-
   script:
-    # compare minor version to cached one, reset patch number if different
-    - >
-      if [ -f id_offset.txt ]; then
-        echo "previous minor value found and unchanged, use current offset"
-        OFFSET=$(cat id_offset.txt)
-      else
-        echo "new cache due to major/minor change, resetting patch number offset"
-        OFFSET=$CI_PIPELINE_IID
-        echo $OFFSET > id_offset.txt
-      fi
-    - PATCH=$(($CI_PIPELINE_IID-$OFFSET))
-    - PATCH=$(($PATCH+13))
     - BUILDNAME=mavlink-$CI_COMMIT_SHORT_SHA-$MAJOR-$MINOR-$PATCH
     - BINARY=swoop_pymavlink-$MAJOR.$MINOR.$PATCH-cp38-cp38-linux_x86_64.whl
     - echo $BUILDNAME
