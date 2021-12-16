@@ -61,6 +61,7 @@
       <entry value="536870912" name="WINGTIP_OVERTEMP"/>  <!-- 29 -->
       <entry value="1073741824" name="ROLE_EQUIPMENT_NOT_READY"/>  <!-- 30 -->
       <entry value="2147483648" name="HIGH_IMPACT_DETECTED"/>  <!-- 31 -->
+      <entry value="4294967296" name="CAN_NODE_MISMATCH"/>  <!-- 32 -->
     </enum>
 
     <enum name="SWOOP_ARMING_CHECK_COMMON">
@@ -331,7 +332,7 @@
     <message id="6901" name="SWOOP_ARMING_FLAGS">
       <description>Periodic ARMING status Flag Packet</description>
       <field type="uint8_t" name="armingCheckStatus" enum="SWOOP_ARMING_CHECKS_PASSED">0 if all arming checks have passed, false otherwise</field>
-      <field type="uint32_t" name="armingCheckFlags1" enum="SWOOP_ARMING_CHECK_DETAIL_1">Flag bits to indicate which of the arming checks is failing</field>
+      <field type="uint64_t" name="armingCheckFlags1" enum="SWOOP_ARMING_CHECK_DETAIL_1">Flag bits to indicate which of the arming checks is failing</field>
       <field type="uint16_t" name="armingCheckFlagsCommon" enum="SWOOP_ARMING_CHECK_COMMON">Flag bits to indicate which of the arming checks is failing</field>
     </message>
 
