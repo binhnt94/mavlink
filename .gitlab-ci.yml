@@ -17,8 +17,8 @@ stages:
 # edit major and minor version numbers here
 # when the minor number changes, the patch number will be reset to 0
 variables:
-  MAJOR: 3
-  MINOR: 8
+  MAJOR: 4
+  MINOR: 0
 
 get-versions:
   stage: get_version
