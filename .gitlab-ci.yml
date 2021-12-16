@@ -8,6 +8,7 @@ workflow:
 
 
 stages:
+  - get_version
   - setup
   - build
   - test
@@ -19,6 +20,26 @@ variables:
   MAJOR: 3
   MINOR: 8
 
+get-versions:
+  stage: get_version
+  tags:
+    - quick
+
+  resource_group: $CI_PROJECT_NAME-patch-number
+
+  variables:
+    FILE: s3://device-management.tools.swoop.aero/firmware/$CI_PROJECT_NAME-patch-numbers.json
+
+  script:
+    - aws s3 cp $FILE patch-numbers.json
+    - PATCH=$(python3 get_patch_number.py -f patch-numbers.json --major $MAJOR --minor $MINOR)
+    - aws s3 cp patch-numbers.json $FILE
+    - echo "PATCH=$PATCH" >> variables.env
+
+  artifacts:
+    reports:
+      dotenv: variables.env
+
 # setup version numbers and variables
 setup:
   tags:
@@ -26,26 +47,7 @@ setup:
 
   stage: setup
 
-  # use this cache to record the last offset used for patch number
-  cache:
-    key: version_cache_mavlink
-    paths:
-      - minor.txt
-      - id_offset.txt
-
   script:
-    # compare minor version to cached one, reset patch number if different
-    - >
-      if [ -f minor.txt ] && [ $(cat minor.txt) = "$MINOR" ]; then
-        echo "previous minor value found and unchanged, use current offset"
-        OFFSET=$(cat id_offset.txt)
-      else
-        echo "minor value changed, resetting patch number"
-        OFFSET=$CI_PIPELINE_IID
-        echo $OFFSET > id_offset.txt
-        echo $MINOR > minor.txt
-      fi
-    - PATCH=$(($CI_PIPELINE_IID-$OFFSET))
     - BUILDNAME=mavlink-$CI_COMMIT_SHORT_SHA-$MAJOR-$MINOR-$PATCH
     - BINARY=swoop_pymavlink-$MAJOR.$MINOR.$PATCH-cp38-cp38-linux_x86_64.whl
     - echo $BUILDNAME
@@ -92,8 +94,12 @@ build:
     - export MDEF=$(pwd)/message_definitions
     - export VERSION=$MAJOR.$MINOR.$PATCH
     - cd pymavlink
+    - /opt/python/cp36-cp36m/bin/pip install -U future lxml
+    - /opt/python/cp37-cp37m/bin/pip install -U future lxml
     - /opt/python/cp38-cp38/bin/pip install -U future lxml
     # Compile wheels
+    - /opt/python/cp36-cp36m/bin/pip wheel --wheel-dir=wheels/ .
+    - /opt/python/cp37-cp37m/bin/pip wheel --wheel-dir=wheels/ .
     - /opt/python/cp38-cp38/bin/pip wheel --wheel-dir=wheels/ .
 
   artifacts:
