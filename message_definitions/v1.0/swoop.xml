@@ -18,6 +18,7 @@
       <entry value="2" name="FAILED_GPS_LAND"/>
       <entry value="4" name="FAILED_CONTINGENCY"/>
       <entry value="8" name="WARNING_DELAYED_DETECTION"/>
+      <entry value="16" name="FAILED_GPS_DROP"/>
     </enum>
 
     <enum name="SWOOP_BATTERY_HEALTH">
