@@ -116,15 +116,13 @@
 
     <enum name="SWOOP_GPS_HEALTH_DETAIL">
       <description>Flag bits to indicate GPS issues</description>
-      <entry value="1" name="GPS1_GOOD"/>  <!-- 1 -->
-      <entry value="2" name="GPS1_DEGRADED"/> <!-- 2 -->
-      <entry value="4" name="GPS1_SIGNIFICANTLY_DEGRADED"/> <!-- 3 -->
-      <entry value="8" name="GPS1_FAILED"/> <!-- 4 -->
-      <entry value="16" name="GPS2_GOOD"/>  <!-- 5 -->
-      <entry value="32" name="GPS2_DEGRADED"/> <!-- 6 -->
-      <entry value="64" name="GPS2_SIGNIFICANTLY_DEGRADED"/> <!-- 7 -->
-      <entry value="128" name="GPS2_FAILED"/> <!-- 8 -->
-      <entry value="256" name="GPS_ALTITUDE_DIFFERENCE"/> <!-- 9 -->
+      <entry value="1" name="GPS1_DEGRADED"/> <!-- 0 -->
+      <entry value="2" name="GPS1_SIGNIFICANTLY_DEGRADED"/> <!-- 1 -->
+      <entry value="4" name="GPS1_FAILED"/> <!-- 2 -->
+      <entry value="8" name="GPS2_DEGRADED"/> <!-- 3 -->
+      <entry value="16" name="GPS2_SIGNIFICANTLY_DEGRADED"/> <!-- 4 -->
+      <entry value="32" name="GPS2_FAILED"/> <!-- 5 -->
+      <entry value="64" name="GPS_ALTITUDE_DIFFERENCE"/> <!-- 6 -->
     </enum>
 
     <enum name="SWOOP_NO_DETAIL">
