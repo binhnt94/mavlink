@@ -124,6 +124,7 @@
       <entry value="32" name="GPS2_DEGRADED"/> <!-- 6 -->
       <entry value="64" name="GPS2_SIGNIFICANTLY_DEGRADED"/> <!-- 7 -->
       <entry value="128" name="GPS2_FAILED"/> <!-- 8 -->
+      <entry value="256" name="GPS_ALTITUDE_DIFFERENCE"/> <!-- 9 -->
     </enum>
 
     <enum name="SWOOP_NO_DETAIL">
