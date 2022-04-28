@@ -403,6 +403,7 @@
       <field type="uint16_t" name="waypointJumper"> waypointJumpCountIterator</field>
       <field type="uint8_t" name="turnAroundOK"> Are we in a position to turn around and stay in the contingency volume </field>
       <field type="uint8_t" name="forwardDivertOK"> Are we in a position to make a turn and stay in the contingency volume </field>
+      <field type="uint8_t" name="orbitOK"> Are we in a position to allow an orbit to occur </field>
       <field type="uint8_t" name="navigationState" enum = "SWOOP_NAVIGATION_STATE"> Navigation Controller statre </field>
       <field type="uint8_t" name="landingState"> Landing State (position_control_state in quadplane.h) </field>
     </message>
