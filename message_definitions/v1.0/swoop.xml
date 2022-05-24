@@ -116,14 +116,14 @@
 
     <enum name="SWOOP_GPS_HEALTH_DETAIL">
       <description>Flag bits to indicate GPS issues</description>
-      <entry value="1" name="GPS1_GOOD"/>  <!-- 1 -->
-      <entry value="2" name="GPS1_DEGRADED"/> <!-- 2 -->
-      <entry value="4" name="GPS1_SIGNIFICANTLY_DEGRADED"/> <!-- 3 -->
-      <entry value="8" name="GPS1_FAILED"/> <!-- 4 -->
-      <entry value="16" name="GPS2_GOOD"/>  <!-- 5 -->
-      <entry value="32" name="GPS2_DEGRADED"/> <!-- 6 -->
-      <entry value="64" name="GPS2_SIGNIFICANTLY_DEGRADED"/> <!-- 7 -->
-      <entry value="128" name="GPS2_FAILED"/> <!-- 8 -->
+      <entry value="1" name="GPS1_DEGRADED"/> <!-- 1 -->
+      <entry value="2" name="GPS1_SIGNIFICANTLY_DEGRADED"/> <!-- 2 -->
+      <entry value="4" name="GPS1_FAILED"/> <!-- 3 -->
+      <entry value="8" name="GPS2_DEGRADED"/> <!-- 4 -->
+      <entry value="16" name="GPS2_SIGNIFICANTLY_DEGRADED"/> <!-- 5 -->
+      <entry value="32" name="GPS2_FAILED"/> <!-- 6 -->
+      <entry value="64" name="GPS_ALTITUDE_DIFFERENCE"/> <!-- 7 -->
+      <entry value="128" name="GPS_POSITION_DIFFERENCE"/> <!-- 8 -->
     </enum>
 
     <enum name="SWOOP_NO_DETAIL">
@@ -403,6 +403,7 @@
       <field type="uint16_t" name="waypointJumper"> waypointJumpCountIterator</field>
       <field type="uint8_t" name="turnAroundOK"> Are we in a position to turn around and stay in the contingency volume </field>
       <field type="uint8_t" name="forwardDivertOK"> Are we in a position to make a turn and stay in the contingency volume </field>
+      <field type="uint8_t" name="orbitOK"> Are we in a position to allow an orbit to occur </field>
       <field type="uint8_t" name="navigationState" enum = "SWOOP_NAVIGATION_STATE"> Navigation Controller statre </field>
       <field type="uint8_t" name="landingState"> Landing State (position_control_state in quadplane.h) </field>
     </message>
@@ -461,6 +462,17 @@
       <field type="int32_t[8]" name="lat">Latitude (parameter 5)</field>
       <field type="int32_t[8]" name="lon">Longitude (parameter 6)</field>
       <field type="float[8]" name="alt">Altitude (parameter 7)</field>
+    </message>
+
+    <message id="6910" name="SWOOP_BATTERY">
+      <description>Battery info for a single battery used for forward and hover systems. </description>
+      <field type="uint8_t" name="id">The ID of the battery.</field>
+      <field type="uint8_t" name="health" > Battery healthy. </field>
+      <field type="uint16_t" name="forward_system_power" units="W"> The recent power usage of the forward system. </field>
+      <field type="uint16_t" name="forward_system_power_adjusted" units="W"> The recent power usage of the forward system adjusted to level flight. </field>
+      <field type="uint16_t" name="hover_system_power" units="W"> The recent power usage of the hover system. </field>
+      <field type="uint16_t" name="hover_system_power_adjusted" units="W"> The recent power usage of the hover system adjusted to static hover. </field>
+      <field type="uint16_t" name="energy_remaining" units="Wh"> Energy remaining in this battery.</field>
     </message>
   </messages>
 </mavlink>
