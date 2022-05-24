@@ -463,5 +463,16 @@
       <field type="int32_t[8]" name="lon">Longitude (parameter 6)</field>
       <field type="float[8]" name="alt">Altitude (parameter 7)</field>
     </message>
+
+    <message id="6910" name="SWOOP_BATTERY">
+      <description>Battery info for a single battery used for forward and hover systems. </description>
+      <field type="uint8_t" name="id">The ID of the battery.</field>
+      <field type="uint8_t" name="health" > Battery healthy. </field>
+      <field type="uint16_t" name="forward_system_power" units="W"> The recent power usage of the forward system. </field>
+      <field type="uint16_t" name="forward_system_power_adjusted" units="W"> The recent power usage of the forward system adjusted to level flight. </field>
+      <field type="uint16_t" name="hover_system_power" units="W"> The recent power usage of the hover system. </field>
+      <field type="uint16_t" name="hover_system_power_adjusted" units="W"> The recent power usage of the hover system adjusted to static hover. </field>
+      <field type="uint16_t" name="energy_remaining" units="Wh"> Energy remaining in this battery.</field>
+    </message>
   </messages>
 </mavlink>
