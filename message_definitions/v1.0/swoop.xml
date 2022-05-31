@@ -463,5 +463,10 @@
       <field type="int32_t[8]" name="lon">Longitude (parameter 6)</field>
       <field type="float[8]" name="alt">Altitude (parameter 7)</field>
     </message>
+
+    <message id="6909" name="SWOOP_LAUNCH_REQUEST">
+      <description>Message used to signal that the launch button has been pressed</description>
+      <field type="uint8_t" name="ack">Is this message an ack of the launch request</field>
+    </message>
   </messages>
 </mavlink>
