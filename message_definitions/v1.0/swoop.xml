@@ -481,7 +481,7 @@
       <field type="float" name="energy_remaining_pct" units="%"> Energy remaining in this battery as a percentage.</field>
       <field type="float" name="voltage" units="V"> Voltage of this battery.</field>
       <field type="float" name="current" units="A"> Current remaining in this battery.</field>
-      <field type="int16_t" name="temperature" units="cdegC"> Temperature of the battery.</field>
+      <field type="float" name="temperature" units="cdegC"> Temperature of the battery.</field>
     </message>
   </messages>
 </mavlink>
