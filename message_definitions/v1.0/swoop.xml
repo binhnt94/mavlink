@@ -468,5 +468,19 @@
       <description>Message used to signal that the launch button has been pressed</description>
       <field type="uint8_t" name="ack">Is this message an ack of the launch request</field>
     </message>
+
+    <message id="6910" name="SWOOP_BATTERY">
+      <description>Battery info for a single battery used for forward and hover systems. </description>
+      <field type="uint8_t" name="id">The ID of the battery.</field>
+      <field type="uint8_t" name="health" > Battery healthy. </field>
+      <field type="float" name="forward_system_power" units="W"> The recent power usage of the forward system. </field>
+      <field type="float" name="forward_system_power_adjusted" units="W"> The recent power usage of the forward system adjusted to level flight. </field>
+      <field type="float" name="hover_system_power" units="W"> The recent power usage of the hover system. </field>
+      <field type="float" name="hover_system_power_adjusted" units="W"> The recent power usage of the hover system adjusted to static hover. </field>
+      <field type="float" name="energy_remaining" units="Wh"> Energy remaining in this battery.</field>
+      <field type="float" name="energy_remaining_pct" units="%"> Energy remaining in this battery as a percentage.</field>
+      <field type="float" name="voltage" units="V"> Voltage of this battery.</field>
+      <field type="float" name="current" units="A"> Current remaining in this battery.</field>
+    </message>
   </messages>
 </mavlink>
