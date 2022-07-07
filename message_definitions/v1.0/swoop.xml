@@ -150,6 +150,7 @@
       <entry value="4" name="FORWARD_MOTOR_OUTPUT_SATURATION"/> <!-- 4 -->
       <entry value="8" name="FORWARD_MOTOR_HIGH_POWER"/> <!-- 8 -->
       <entry value="16" name="FORWARD_MOTOR_TEMP_DIFF"/> <!-- 16 -->
+      <entry value="32" name="FORWARD_MOTOR_RPM_OFFSET"/> <!-- 16 -->
     </enum>
 
     <enum name="LIDAR_DETAIL">
