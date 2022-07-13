@@ -109,9 +109,15 @@
 
     <enum name="SWOOP_EMERGENCY_LAND_DETAIL">
       <description>Flag bits to indicate the reason for the hover assist status</description>
-      <entry value="1" name="HOVER_ASSIST_LONG_TIMEOUT"/>
-      <entry value="2" name="HOVER_ASSIST_COUNTER_TIMEOUT"/>
-      <entry value="4" name="HOVER_ASSIST_BATTERY_DEPLETED"/>
+      <entry value="1" name="EMERGENCY_LAND_HA_LONG_TIMEOUT"/>
+      <entry value="2" name="EMERGENCY_LAND_HA_COUNTER_TIMEOUT"/>
+      <entry value="4" name="EMERGENCY_LAND_HOVER_BATTERY_DEPLETED"/>
+      <entry value="8" name="EMERGENCY_LAND_GROUND_RISK"/>
+      <entry value="16" name="EMERGENCY_LAND_GPS_FAILURE"/>
+      <entry value="32" name="EMERGENCY_LAND_HOVER_BATTERY_FAILURE"/>
+      <entry value="64" name="EMERGENCY_LAND_HOVER_MOTOR_FAILURE"/>
+      <entry value="128" name="EMERGENCY_LAND_FORWARD_MOTOR_FAILURE"/>
+      <entry value="256" name="EMERGENCY_LAND_BAD_EKF"/>
     </enum>
 
     <enum name="SWOOP_GPS_HEALTH_DETAIL">
@@ -150,6 +156,7 @@
       <entry value="4" name="FORWARD_MOTOR_OUTPUT_SATURATION"/> <!-- 4 -->
       <entry value="8" name="FORWARD_MOTOR_HIGH_POWER"/> <!-- 8 -->
       <entry value="16" name="FORWARD_MOTOR_TEMP_DIFF"/> <!-- 16 -->
+      <entry value="32" name="FORWARD_MOTOR_RPM_OFFSET"/> <!-- 16 -->
     </enum>
 
     <enum name="LIDAR_DETAIL">
@@ -388,7 +395,7 @@
       <field type="uint8_t" name="winchIntensity" enum="SWOOP_FLAG_INTENSITY"> Flag bits to indicate intensity of winch issues</field>
       <field type="uint8_t" name="winchDetail" enum="WINCH_DETAIL"> Flag bits to indicate detail of winch issues</field>
       <field type="uint8_t" name="takeoffAbortedIntensity" enum="SWOOP_FLAG_INTENSITY"> Flag bits to indicate intensity of aborted takeoff</field>
-      <field type="uint8_t" name="takeoffAbortedDetail" enum="SWOOP_NO_DETAIL"> No details required for takeoff aborted flag</field>
+      <field type="uint8_t" name="takeoffAbortedDetail" enum="SWOOP_EMERGENCY_LAND_DETAIL"> No details required for takeoff aborted flag</field>
     </message>
 
     <message id="6904" name="SWOOP_STATUS">
