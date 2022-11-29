@@ -490,5 +490,12 @@
       <field type="float" name="current" units="A"> Current remaining in this battery.</field>
       <field type="float" name="temperature" units="cdegC"> Temperature of the battery.</field>
     </message>
+
+    <message id="6911" name="SWOOP_CAN_STATUS">
+      <description>Battery info for a single battery used for forward and hover systems. </description>
+      <field type="uint8_t" name="node_id"> The ID of the CAN Node that is reporting. </field>
+      <field type="uint8_t[16]" name="node_uid" > The UID of the CAN Node that is reporting. </field>
+      <field type="uint8_t" name="node_fw_version"> The firmware version of the CAN Node that is reporting.  </field>
+    </message>
   </messages>
 </mavlink>
