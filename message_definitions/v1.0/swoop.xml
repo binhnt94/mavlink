@@ -495,7 +495,7 @@
       <description>Battery info for a single battery used for forward and hover systems. </description>
       <field type="uint8_t" name="node_id"> The ID of the CAN Node that is reporting. </field>
       <field type="uint8_t[16]" name="node_uid" > The UID of the CAN Node that is reporting. </field>
-      <field type="uint32_t" name="node_fw_version"> The firmware version of the CAN Node that is reporting.  </field>
+      <field type="uint32_t" name="node_fw_version"> The firmware version of the CAN Node that is reporting. </field>
     </message>
   </messages>
 </mavlink>
