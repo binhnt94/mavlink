@@ -470,5 +470,12 @@
       <field type="int32_t[8]" name="lon">Longitude (parameter 6)</field>
       <field type="float[8]" name="alt">Altitude (parameter 7)</field>
     </message>
+
+    <message id="7000" name="SWOOP_UUID">
+      <description>Single message for Swoop UUID broadcasting.</description>
+      <field type="char[16]" name="type">UUID type </field>
+      <field type="char[32]" name="uuid">UUID</field>
+    </message>
+
   </messages>
 </mavlink>
