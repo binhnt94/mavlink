@@ -334,6 +334,30 @@
       <entry value="3" name="DAA_IRIS"/>
     </enum>
 
+    <enum name="SWOOP_LED_WAVEFORM">
+      <description>LED waveform</description>
+      <entry value="0" name="LED_ANTICOLLISION"/>
+      <entry value="1" name="LED_TRIANGLE"/>
+      <entry value="2" name="LED_SQUARE"/>
+      <entry value="3" name="LED_SOLID"/>
+    </enum>
+
+    <enum name="SWOOP_LED_FREQUENCY">
+      <description>LED waveform frequency</description>
+      <entry value="0" name="LED_SOLID_F"/>
+      <entry value="1" name="LED_SLOW_F"/>
+      <entry value="2" name="LED_MEDIUM_F"/>
+      <entry value="3" name="LED_FAST_F"/>
+    </enum>
+
+    <enum name="SWOOP_LED_COLOUR">
+      <description>LED colour</description>
+      <entry value="0" name="LED_OFF"/>
+      <entry value="1" name="LED_WHITE"/>
+      <entry value="2" name="LED_RED"/>
+      <entry value="3" name="LED_GREEN"/>
+      <entry value="4" name="LED_BLUE"/>
+    </enum>
   </enums>
 
   <messages>
@@ -489,6 +513,13 @@
       <field type="float" name="voltage" units="V"> Voltage of this battery.</field>
       <field type="float" name="current" units="A"> Current remaining in this battery.</field>
       <field type="float" name="temperature" units="cdegC"> Temperature of the battery.</field>
+    </message>
+
+    <message id="6911" name="SWOOP_TAIL_STROBE">
+      <description>Tail strobe LED pattern</description>
+      <field type="uint8_t" name="colour" enum="SWOOP_LED_COLOUR"></field>
+      <field type="uint8_t" name="waveform" enum="SWOOP_LED_WAVEFORM"></field>
+      <field type="uint8_t" name="frequency" enum="SWOOP_LED_FREQUENCY"></field>
     </message>
   </messages>
 </mavlink>
