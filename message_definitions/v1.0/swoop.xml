@@ -521,5 +521,13 @@
       <field type="uint8_t" name="waveform" enum="SWOOP_LED_WAVEFORM"></field>
       <field type="uint8_t" name="frequency" enum="SWOOP_LED_FREQUENCY"></field>
     </message>
+
+    <message id="6912" name="SWOOP_CAN_STATUS">
+      <description>CAN Node status reporting heartbeat. </description>
+      <field type="uint8_t" name="node_id"> The ID of the CAN Node that is reporting. </field>
+      <field type="uint8_t[16]" name="node_uid" > The UID of the CAN Node that is reporting. </field>
+      <field type="uint32_t" name="node_fw_version"> The firmware version of the CAN Node that is reporting. </field>
+    </message>
+    
   </messages>
 </mavlink>
