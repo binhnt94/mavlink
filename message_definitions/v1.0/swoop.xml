@@ -528,6 +528,12 @@
       <field type="uint8_t[16]" name="node_uid" > The UID of the CAN Node that is reporting. </field>
       <field type="uint32_t" name="node_fw_version"> The firmware version of the CAN Node that is reporting. </field>
     </message>
-    
+
+    <message id="7000" name="SWOOP_UUID">
+      <description>Single message for Swoop UUID broadcasting.</description>
+      <field type="char[16]" name="type">UUID type </field>
+      <field type="char[32]" name="uuid">UUID</field>
+    </message>
+
   </messages>
 </mavlink>
