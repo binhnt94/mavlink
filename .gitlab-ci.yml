@@ -117,8 +117,13 @@ release:
     BASE_FILE_NAME: s3://device-management.tools.swoop.aero/firmware/mavlink/$CI_COMMIT_BRANCH
 
   script:
+    - cp -r message_definitions pymavlink/
+    - cd pymavlink/
+    - echo -en $MAJOR.$MINOR.$PATCH > version.txt
+    - python3 setup.py sdist
+    - cd ..
     - pip install s3pypi==1.0.0rc3
-    - s3pypi pymavlink/wheels/* --bucket device-management.tools.swoop.aero --prefix firmware/pypi
+    - s3pypi pymavlink/wheels/* pymavlink/dist/* --bucket device-management.tools.swoop.aero --prefix firmware/pypi
     #- aws s3 cp pymavlink/$BINARY $BASE_FILE_NAME/$BINARY
     - aws s3 cp ci_metadata.json $BASE_FILE_NAME/$BUILDNAME.config
     - curl --location --output /usr/local/bin/release-cli "https://release-cli-downloads.s3.amazonaws.com/latest/release-cli-linux-amd64"
