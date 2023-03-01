@@ -83,7 +83,7 @@ setup:
 
 build:
   stage: build
-  image: quay.io/pypa/manylinux1_x86_64
+  image: quay.io/pypa/manylinux_2_28_x86_64
   tags:
     - quick
 
@@ -94,13 +94,11 @@ build:
     - export MDEF=$(pwd)/message_definitions
     - export VERSION=$MAJOR.$MINOR.$PATCH
     - cd pymavlink
-    - /opt/python/cp36-cp36m/bin/pip install -U future lxml
-    - /opt/python/cp37-cp37m/bin/pip install -U future lxml
-    - /opt/python/cp38-cp38/bin/pip install -U future lxml
-    # Compile wheels
-    - /opt/python/cp36-cp36m/bin/pip wheel --wheel-dir=wheels/ .
-    - /opt/python/cp37-cp37m/bin/pip wheel --wheel-dir=wheels/ .
-    - /opt/python/cp38-cp38/bin/pip wheel --wheel-dir=wheels/ .
+    - |
+      for PYBIN in /opt/python/*/bin; do
+          "${PYBIN}/pip" install install -U future lxml
+          "${PYBIN}/pip" wheel --wheel-dir=wheels/ .
+      done
 
   artifacts:
     name: "pymavlink_$VERSION_$CI_COMMIT_SHORT_SHA"
