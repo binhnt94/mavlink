@@ -269,7 +269,7 @@
       <description>Enumerated type for flight stage</description>
       <entry value="0" name="DISSARMED_ON_GROUND"/>  <!-- 0 -->
       <entry value="1" name="MOTORS_IDLING"/> <!-- 5 -->
-      <entry value="2" name="TAKEOFF"/>  <!-- 0 -->
+      <entry value="2" name="TAKING_OFF"/>  <!-- 0 -->
       <entry value="3" name="TRANSITION_TO_FORWARD_FLIGHT"/> <!-- 2 -->
       <entry value="4" name="FORWARD_FLIGHT"/>  <!-- 3 -->
       <entry value="5" name="TRANSITION_TO_HOVER"/> <!-- 4 -->
@@ -302,7 +302,7 @@
       <entry value="64" name="LIDAR"/> <!-- 7 -->
       <entry value="128" name="HOVER_BATTERY"/><!-- 8 -->
       <entry value="256" name="FORWARD_BATTERY"/><!-- 9 -->
-      <entry value="512" name="ALTITUDE"/><!-- 10 -->
+      <entry value="512" name="ALTITUDE_FLAG"/><!-- 10 -->
       <entry value="1024" name="WIND"/><!-- 11 -->
       <entry value="2048" name="HOVER_ATTITUDE"/><!-- 12 -->
       <entry value="4096" name="LANDING"/><!-- 13 -->
@@ -311,7 +311,7 @@
       <entry value="32768" name="SERVO"/><!-- 16 -->
       <entry value="65536" name="PLAND_ABORT"/><!-- 17 -->
       <entry value="131072" name="ADSB_FLAG"/><!-- 18 -->
-      <entry value="262144" name="YAW"/><!-- 19 -->
+      <entry value="262144" name="YAW_FLAG"/><!-- 19 -->
       <entry value="524288" name="EKF_HEALTH"/><!-- 20 -->
       <entry value="1048576" name="WINGS"/><!-- 21 -->
       <entry value="2097152" name="TRACKING"/><!-- 22 -->
